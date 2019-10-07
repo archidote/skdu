@@ -48,7 +48,7 @@ if [ $siroot = $usercheck ]; then
          fi
          ;;
          1)
-	 ./monit-linux-date.sh
+	 ./src/monit-linux-date.sh
          ;;
          2)
            echo -e "\e[93m"
@@ -118,13 +118,13 @@ if [ $siroot = $usercheck ]; then
           echo -e "note : Cette erreure peut apparaitre de manière aléatoire suite à l'installation d'un paquet défaillant ou non approuvé"
          ;;
 	 12)
-	 ./monit-linux-users.sh
+	 ./src/monit-linux-users.sh
          ;;
          13)
-         ./monit-linux-info-sys.sh
+         ./src/monit-linux-info-sys.sh
          ;; 
          29)
-         ./monit-linux-dist-upgrade.sh
+         ./src/monit-linux-dist-upgrade.sh
          ;;
          30)
           echo -e " \e[92m  Vous avez mis fin du programme. à bientôt :) \e[0m "
