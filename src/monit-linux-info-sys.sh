@@ -2,8 +2,8 @@
 ip=`ip -o -f inet addr show | awk '/scope global/ {print $4}' | head -1`
 hostname=`hostname -s`
 dnsdname=`hostname -d`
-os=`cat /etc/os-release | head -1 | cut -c6-`
-osVersion=`cat /etc/os-release | head -n 2 | tail -1 | cut -c9-`
+os=`hostnamectl | grep Operating | cut -c21-`
+kernel=`hostnamectl | grep Kernel | cut -c21-`
 osLike=`cat /etc/os-release | grep LIKE | cut -c9-`
 dns1=`cat /etc/resolv.conf | grep -m 1 'nameserver' | cut -c12-`
 dns2=`cat /etc/resolv.conf | tail -1 | cut -c12-`
@@ -12,8 +12,7 @@ echo -e "#######################################################################
 echo -e "\e[92m                                     Information Concernant le système                         \e[0m"
 echo -e "##########################################################################################################"
 echo -e " OS              : $os                                                                                                    "
-echo -e " Version         : $osVersion                                                                                                "
-echo -e " OS LIKE         : $osLike                                                                                               " 
+echo -e " Kernel          : $kernel"
 echo -e " Hostname        : $hostname                                                     "
 echo -e " DNS Domain name : $dnsdname                                                                              "
 echo -e " Main ip address : $ip"
