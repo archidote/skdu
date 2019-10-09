@@ -34,10 +34,7 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-date.sh
          ;;
          2)
-           echo -e "\e[93m"
-           echo -e "Affichage de la météo en cours ... "
-           echo -e "\e[0m" 
-               curl -s wttr.in/?1 # you need to install curl / vous devez installer curl 
+         curl -s wttr.in/?1 # you need to install curl / vous devez installer curl 
          ;;
          3)
          ./src/monit-linux-maj-apt.sh
