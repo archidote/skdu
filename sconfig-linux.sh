@@ -1,7 +1,7 @@
 #!/bin/bash
 #-----------------------------------------------------------------------#
 # a executer en root / you need to execute the pgm as root              #
-# a internet connexion is required #
+# a internet connexion is required for install paquets#
 # you need to install curl and htop                                     #
 # only executable on DEBIAN / ubuntu kernel environnement               #
 #-----------------------------------------------------------------------#
@@ -24,28 +24,23 @@ hdd=`df -h /dev/sda1 --output=fstype,size,used,avail,pcent`
 # echo $usercheck;
 if [ $siroot = $usercheck ]; then
 #  su - 
-   echo -e "*-------------------------------------------------------------------------------------------------------*"
-   echo -e "*  0)  !Installer programme de base                  6)  Modifier le mdp d'un utilisateur               *"
-   echo -e "*  1)  Message de bienvenue                          7)  Supprimer un utilisateur et son dossier        *"
-   echo -e "*  2)  Afficher la météo                             8)  Lancer l'utilitaire HTOP                       *"
-   echo -e "*  3)  Mise à jour des dépots                        9)  Sauvegarder un répertoire                      *"
-   echo -e "*  4)  Nettoyage des paquets / dépots                10) Résoudre pb de dpkg suite à une cmd apt update *"
-   echo -e "*  5)  Ajouter un utilisateur                        11) Résoudre pb E: Sub-process /usr/bin/dpkg       *"
-   echo -e "*                                                                                                       *"
-   echo -e "*  29) MAJ de l'OS (pour Debian9->10/Ubuntu (Not-LTS)                                                    *"
-   echo -e "*  30) Quitter le programme                                                                             *"   
-   echo -e "*-------------------------------------------------------------------------------------------------------*"
+   echo -e "*---------------------------------------------------------------------------------------------------------*"
+   echo -e "*  0)  !Installer programme de base                   6)  Modifier le mdp d'un utilisateur                *"
+   echo -e "*  1)  Message de bienvenue                           7)  Supprimer un utilisateur et son dossier         *"
+   echo -e "*  2)  Afficher la météo                              8)  Lancer l'utilitaire HTOP                        * "
+   echo -e "*  3)  Mise à jour des dépots                         9)  Sauvegarder un répertoire                       *"
+   echo -e "*  4)  Nettoyage des paquets / dépots                 10) Résoudre pb de dpkg suite à une cmd apt update  *"
+   echo -e "*  5)  Ajouter un utilisateur                         11) Résoudre pb E: Sub-process /usr/bin/dpkg        *"
+   echo -e "*                                                                                                         *"
+   echo -e "*  29) DIST UPGRADE (Deb 9->10/ Ubuntu (Not-LTS)      12) Log de connexion utilisateur atcif/non-actif    *"
+   echo -e "*  30) Quitter le programme                           13) information général du serveur                  *"   
+   echo -e "*                                                                                                         *"
+   echo -e ""
+   echo -e "*---------------------------------------------------------------------------------------------------------*"
    read -p "Choisir parmis les options 0-30 : " choix
    case $choix in
          0)
-         echo -e "\e[32m Vérifier que vous disposez des paquets : curl / htop ?  \e[0m";
-         read -p "rep : (O/N) : " rep1
-         if [ $rep1 == "O" ] || [ $rep1 == "o" ]; then
-              apt-get install curl htop sudo
-              echo -e "\e[92m  Votre système à installé le dépot curl et htop. Le programme début de journée, va pouvoir fonctionner de manière éfficient \e[0m "
-         else 
-              echo -e " \e[91m Vous avez annulé la vérification des paquets, en espérant que votre système contient bien : curl, htop.\e[0m"
-         fi
+         ./src/monit-linux-verification-paquets.sh
          ;;
          1)
 	 ./src/monit-linux-date.sh
@@ -57,17 +52,13 @@ if [ $siroot = $usercheck ]; then
                curl -s wttr.in/?1 # you need to install curl / vous devez installer curl 
          ;;
          3)
-           echo -e "\e[93m"
-           echo -e "Mis à jours en cours ... "
-           echo -e "\e[0m"
-               apt update && apt upgrade
+         ./src/monit-linux-maj-apt.sh
          ;;
          4)
           echo -e "\e[93m"
           echo -e "Nettoyage du système en cours ... "
           echo -e "\e[0m"
              apt-get autoremove
-             apt-get clean
              apt-get purge
          ;;
          5) # ajout d'un utilisateur 
