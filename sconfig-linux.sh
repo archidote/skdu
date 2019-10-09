@@ -1,10 +1,4 @@
 #!/bin/bash
-#-----------------------------------------------------------------------#
-# a executer en root / you need to execute the pgm as root              #
-# a internet connexion is required for install paquets#
-# you need to install curl and htop                                     #
-# only executable on DEBIAN / ubuntu kernel environnement               #
-#-----------------------------------------------------------------------#
 echo "------------------------------------------------------------------"
 echo "| scl - sconfig Linux  -  Brlndtech 2019 © AIO management Script |";  
 echo "------------------------------------------------------------------";
@@ -15,13 +9,7 @@ do
 siroot=`whoami` # stock le resultat de la commande whoami dans usercheck
 usercheck="root"
 choix=99
-ip=`ip -o -f inet addr show | awk '/scope global/ {print $4}' | head -1`
-hostname=`hostname -s`
-dnsdname=`hostname -d`
-dns1=`cat /etc/resolv.conf | grep -m 1 'nameserver' | cut -c12-`
-dns2=`cat /etc/resolv.conf | tail -1 | cut -c12-`
-hdd=`df -h /dev/sda1 --output=fstype,size,used,avail,pcent`
-# echo $usercheck;
+# fin des var global 
 if [ $siroot = $usercheck ]; then
 #  su - 
    echo -e "*---------------------------------------------------------------------------------------------------------*"
@@ -43,7 +31,7 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-verification-paquets.sh
          ;;
          1)
-	 ./src/monit-linux-date.sh
+         ./src/monit-linux-date.sh
          ;;
          2)
            echo -e "\e[93m"
@@ -62,29 +50,13 @@ if [ $siroot = $usercheck ]; then
              apt-get purge
          ;;
          5) # ajout d'un utilisateur 
-          echo -e "\e[93m "
-          echo -e "En cours ... "
-          echo -e "\e[0m"
-               read -p "Entrer le nom de l'utilisateur à ajouter : " user  
-               /usr/sbin/adduser --force-badname $user
-          echo -e " \e[92m L'utilisateur $user a bien été crée et ajouté. Dossier personnel : /home/$user \e[0m"
+         ./src/monit-linux-adduser.sh
          ;;
          6) # changer le mdp d'un utilisateur 
-          echo -e "\e[93m " 
-          echo -e  "en cours ... "
-          echo -e "\e[0m";
-               read -p "Entrer le nom de l'utilisateur dont vous voulez changer le mdp : " user  
-               passwd $user
-          echo -e " \e[92m Le mot de passe de l'utilisateur $user a bien été changé  \e[0m"
+         ./src/monit-linux-passwd.sh
          ;;
          7) # supprimer un utilisateur
-          echo -e "\e[93m "
-          echo -e "En cours ... "
-          echo -e "\e[0m";
-               read -p "Entrer le nom de l'utilisateur à SUPPRIMER : " user  
-               /usr/sbin/deluser $user
-               rm -r /home/$user
-          echo -e " \e[92m L'utilisateur $user a bien été supprimé, ainsi que son dossier personnel /home/$user. \e[0m"
+         ./src/monit-linux-deluser.sh 
          ;;
          8)
           echo -e "\e[93m"
