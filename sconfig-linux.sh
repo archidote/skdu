@@ -40,11 +40,7 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-maj-apt.sh
          ;;
          4)
-          echo -e "\e[93m"
-          echo -e "Nettoyage du système en cours ... "
-          echo -e "\e[0m"
-             apt-get autoremove
-             apt-get purge
+	 ./src/monit-linux-autoremove-purge.sh
          ;;
          5) # ajout d'un utilisateur 
          ./src/monit-linux-adduser.sh
@@ -55,10 +51,7 @@ if [ $siroot = $usercheck ]; then
          7) # supprimer un utilisateur
          ./src/monit-linux-deluser.sh 
          ;;
-         8)
-          echo -e "\e[93m"
-          echo -e "Lancement de l'utilitaire HTOP ... " 
-          echo -e "\e[0m" 
+         8) 
           htop
           ;;
          9)
