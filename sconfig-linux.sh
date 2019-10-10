@@ -40,7 +40,7 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-maj-apt.sh
          ;;
          4)
-	 ./src/monit-linux-autoremove-purge.sh
+	     ./src/monit-linux-autoremove-purge.sh
          ;;
          5) # ajout d'un utilisateur 
          ./src/monit-linux-adduser.sh
@@ -55,23 +55,16 @@ if [ $siroot = $usercheck ]; then
           htop
           ;;
          9)
-          read -p "Entrer le chemin relatif ou absolue : " target  
-          echo -e  "\e[33m Sauvegarde en cours ... \e[0m";
-          cp -r $target /backup
-          echo -e "\e[92m Action éfféctuée. -> Dossier sauvegardé. Pour le visualiser : cd /backup$target \e[0m";
+         ./src/monit-linux-backup.sh
          ;;
          10)
-          rm -f /var/lib/dpkg/lock
-          echo -e "\e[93m Vérifier si le problème a été résolu, avec apt update && apt upgrade (option 3) echo -e \e[0m"
-          echo -e " note : Cette erreure peut apparaitre de manière aléatoire suite à l'installation d'un paquet défaillant ou non approuvé"
+         ./src/monit-linux-dpkgpb1.sh
          ;;
          11)
-          rm /var/lib/dpkg/info/$nomdupaquet* -f
-          echo -e "\e[93m Vérifier si le problème a été résolu, avec apt update && apt upgrade (option 3) echo -e \e[0m"
-          echo -e "note : Cette erreure peut apparaitre de manière aléatoire suite à l'installation d'un paquet défaillant ou non approuvé"
+         ./src/monit-linux-dpkgpb2.sh
          ;;
-	 12)
-	 ./src/monit-linux-users.sh
+	     12)
+	     ./src/monit-linux-users.sh
          ;;
          13)
          ./src/monit-linux-info-sys.sh

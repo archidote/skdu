@@ -25,9 +25,9 @@ echo "*------------------------------------------------------------------------*
 who --ips
 echo " ________________________________________________________________________"
 echo "|                                                                        |"
-echo "|     List of users who was connected or disconnected for today          |"
+echo "|     List of users who was connected or disconnected for few days       |"
 echo "|________________________________________________________________________|"
 echo "* Users | pts |///////|    IP @   |///| DD MM  N°D Hr -> | hr <- | N°h Co*"
 echo "*------------------------------------------------------------------------*"
-last -i | grep -e "$jour"
+last -i 
 echo ""
