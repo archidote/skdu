@@ -11,7 +11,7 @@ cp /etc/network/interfaces /etc/network/backup/interfaces_backup_`date +%Y%m%d%H
 # Changes dhcp from 'yes' to 'no'
 # sed -i "s/dhcp4: yes/dhcp4: no/g" $locateNetplan
 # Retrieves the NIC information
-nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2-`
+nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2- | head -1`
 # Ask for input on network configuration
 ifdown $nic
 read -p "Enter the static IP : " staticip
