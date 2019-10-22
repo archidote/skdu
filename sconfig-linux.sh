@@ -22,7 +22,7 @@ if [ $siroot = $usercheck ]; then
    echo -e "*                                                                                                         *"
    echo -e "*  29) DIST UPGRADE (Deb 9->10/ Ubuntu (Not-LTS)      12) Log de connexion utilisateur atcif/non-actif    *"
    echo -e "*  30) Quitter le programme                           13) information général du serveur                  *"   
-   echo -e "*                                                                                                         *"
+   echo -e "*                                                     14) changer ip du serveur (main network interface)  *"
    echo -e ""
    echo -e "*---------------------------------------------------------------------------------------------------------*"
    read -p "Choisir parmis les options 0-30 : " choix
@@ -69,6 +69,9 @@ if [ $siroot = $usercheck ]; then
          13)
          ./src/monit-linux-info-sys.sh
          ;; 
+	 14)
+	 ./src/monit-linux-networking.sh
+	 ;;
          29)
          ./src/monit-linux-dist-upgrade.sh
          ;;

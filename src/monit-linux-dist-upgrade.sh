@@ -1,6 +1,6 @@
 #!/bin/bash 
 echo -e "Détection automatique de l'OS en cours ... "
-   if [ `cat /etc/issue | cut -c1-6` == "Ubuntu" ]; then
+   if [ "`cat /etc/issue | cut -c1-6`" == "Ubuntu" ]; then
       echo -e "Votre système dexploitation est reconnu comme étant  \e[92m Ubuntu. \e[0m"
       read -p "Voulez vous mettre à jour votre Système d'exploitation Ubuntu ? (O/N) " rep1
       echo -e "note : la mise à jour d'ubuntu LTS n'est pas supportée par le porgramme, sorry  ! "
@@ -13,7 +13,7 @@ echo -e "Détection automatique de l'OS en cours ... "
       else 
          echo " \e[93m Vous avez annulé la mise à jour de ubuntu \e[0m "
       fi
-    elif [ `cat /etc/issue | cut -c1-6` == "Debian" ]; then
+    elif [ "`cat /etc/issue | cut -c1-6`" == "Debian" ]; then
       echo -e "Votre système dexploitation est reconnu comme étant \e[92m Debian. (ATTENTION l'option mis à jours est seulement disponnible pr debian 9)"
       read -p "Voulez vous mettre à jour votre Système d'exploitation Debian ? (O/N) " rep1
       read -p "Attention, cette action ne peut pas être stoppé. Une dernière fois ETES VOUS SUR ? (O/N)" rep1

@@ -1,8 +1,9 @@
 #!/bin/bash
 # Creates a backup
-echo -e "WARNING, you will change the ip address of your server. Make sure that you have a physical access to him. TAP CTRL C for cancel the action"
+echo -e "\e[93m WARNING \e[0m, you will change the ip address of your server. Make sure that you have a physical access to him. TAP CTRL C for cancel the action"
 if [ -d "/etc/network/backup" ];then
-	echo "Le dossier /etc/netplan/backup est déjà présent sur le système";
+    echo ""
+	# echo "Le dossier /etc/netplan/backup est déjà présent sur le système";
 else
 	mkdir /etc/network/backup
 	echo "/etc/network/backup has been created ! "
@@ -19,7 +20,6 @@ read -p "Entrer the netmask : " netmask
 read -p "Enter the IP of your gateway : " gateway
 read -p "Enter a dns ip : " dns1
 read -p "Enter a second dns  ip : " dns2
-echo
 cat > /etc/network/interfaces << EOF
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
@@ -43,5 +43,4 @@ nameserver $dns2
 EOF
 #systemctl restart networking
 ifup $nic
-echo "Your ip address has been changed ! (with netplan daemon)"
-echo
+echo -e "\e[92m Your ip address has been changed ! (/etc/network/interfaces) \e[0m"

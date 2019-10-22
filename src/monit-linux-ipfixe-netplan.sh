@@ -1,9 +1,9 @@
 #!/bin/bash
-#
 # Creates a backup
-echo -e "WARNING, you will change the ip address of your server. Make sure that you have a physical access to him. TAP CTRL C for cancel the action"
+echo -e "\e[93m WARNING \e[0m, you will change the ip address of your server. Make sure that you have a physical access to him. TAP CTRL C for cancel the action"
 if [ -d "/etc/netplan/backup" ];then
- echo "Le dossier /etc/netplan/backup est déjà présent sur le système";
+echo ""
+# echo "Le dossier /etc/netplan/backup est déjà présent sur le système";
 else
 mkdir /etc/netplan/backup
 echo "/etc/netplan/backup has been created ! "
@@ -15,11 +15,10 @@ cp /etc/netplan/$locateNetplan /etc/netplan/backup/netplan_`date +%Y%m%d%H%M`
 # Retrieves the NIC information
 nic=`ifconfig | awk 'NR==1{print $1}'`
 # Ask for input on network configuration
-read -p "Enter the static IP in CIDR notation : (ex :x.x.x.x/CIDR) " staticip 
+read -p "Enter the static IP in CIDR notation (ex :x.x.x.x/CIDR) : " staticip 
 read -p "Enter the IP of your gateway : " gatewayip
-read -p "Enter the first dns ip :" dns1
+read -p "Enter the first dns ip : " dns1
 read -p "enter the second dns ip : " dns2
-echo
 cat > /etc/netplan/$locateNetplan <<EOF
 network:
   version: 2
@@ -40,5 +39,4 @@ nameserver $dns1
 nameserver $dns2
 EOF
 sudo netplan apply
-echo "Your ip address has been changed ! (with netplan daemon)"
-echo
+echo -e "\e[92m Your ip address has been changed ! (with netplan daemon) \e[0m"
