@@ -11,13 +11,14 @@ fi
 locateNetplan=`find /etc/netplan/ -name "*.yaml" | cut -c14-`
 cp /etc/netplan/$locateNetplan /etc/netplan/backup/netplan_`date +%Y%m%d%H%M`
 # Changes dhcp from 'yes' to 'no'
-sed -i "s/dhcp4: yes/dhcp4: no/g" $locateNetplan
+# sed -i "s/dhcp4: yes/dhcp4: no/g" $locateNetplan
 # Retrieves the NIC information
 nic=`ifconfig | awk 'NR==1{print $1}'`
 # Ask for input on network configuration
 read -p "Enter the static IP in CIDR notation : (ex :x.x.x.x/CIDR) " staticip 
 read -p "Enter the IP of your gateway : " gatewayip
-read -p "Enter the IP of preferred nameservers (seperated by a coma if more than one): " nameserversip
+read -p "Enter the first dns ip :" dns1
+read -p "enter the second dns ip : " dns2
 echo
 cat > /etc/netplan/$locateNetplan <<EOF
 network:
@@ -25,11 +26,18 @@ network:
   renderer: networkd
   ethernets:
     $nic
+      dhcp4: no
       addresses:
         - $staticip
       gateway4: $gatewayip
       nameservers:
-          addresses: [$nameserversip]
+          addresses: [$dns1, $dns2]
+EOF
+cat > /etc/resolv.conf <<EOF
+domain localdomain
+search localdomain
+nameserver $dns1
+nameserver $dns2
 EOF
 sudo netplan apply
 echo "Your ip address has been changed ! (with netplan daemon)"
