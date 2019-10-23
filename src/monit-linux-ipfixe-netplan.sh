@@ -13,7 +13,8 @@ cp /etc/netplan/$locateNetplan /etc/netplan/backup/netplan_`date +%Y%m%d%H%M`
 # Changes dhcp from 'yes' to 'no'
 # sed -i "s/dhcp4: yes/dhcp4: no/g" $locateNetplan
 # Retrieves the NIC information
-nic=`ifconfig | awk 'NR==1{print $1}'`
+nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2- | head -1`
+# echo $nic:
 # Ask for input on network configuration
 read -p "Enter the static IP in CIDR notation (ex :x.x.x.x/CIDR) : " staticip 
 read -p "Enter the IP of your gateway : " gatewayip
@@ -24,7 +25,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    $nic
+    $nic:
       dhcp4: no
       addresses:
         - $staticip
