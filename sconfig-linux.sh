@@ -23,7 +23,7 @@ if [ $siroot = $usercheck ]; then
    echo -e "*  29) DIST UPGRADE (Deb 9->10/ Ubuntu (Not-LTS)      12) Log de connexion utilisateur atcif/non-actif    *"
    echo -e "*  30) Quitter le programme                           13) information général du serveur                  *"   
    echo -e "*                                                     14) changer ip du serveur (main network interface)  *"
-   echo -e ""
+   echo -e "                                                      15) change the hostname of the machine              *"
    echo -e "*---------------------------------------------------------------------------------------------------------*"
    read -p "Choisir parmis les options 0-30 : " choix
    case $choix in
@@ -40,7 +40,7 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-maj-apt.sh
          ;;
          4)
-	     ./src/monit-linux-autoremove-purge.sh
+	      ./src/monit-linux-autoremove-purge.sh
          ;;
          5) # ajout d'un utilisateur 
          ./src/monit-linux-adduser.sh
@@ -53,7 +53,7 @@ if [ $siroot = $usercheck ]; then
          ;;
          8) 
           htop
-          ;;
+         ;;
          9)
          ./src/monit-linux-backup.sh
          ;;
@@ -63,27 +63,30 @@ if [ $siroot = $usercheck ]; then
          11)
          ./src/monit-linux-dpkgpb2.sh
          ;;
-	     12)
-	     ./src/monit-linux-users.sh
+	      12)
+	      ./src/monit-linux-users.sh
          ;;
          13)
          ./src/monit-linux-info-sys.sh
          ;; 
-	 14)
-	 ./src/monit-linux-networking.sh
-	 ;;
+         14)
+      	 ./src/monit-linux-networking.sh
+      	 ;;
+         15)
+         ./src/monit-linux-hostname.sh
+         ;;
          29)
          ./src/monit-linux-dist-upgrade.sh
          ;;
          30)
-          echo -e " \e[92m  Vous avez mis fin du programme. à bientôt :) \e[0m "
-          break;
+         echo -e " \e[92m  Vous avez mis fin du programme. à bientôt :) \e[0m "
+         break;
          ;;
          99) # mode debug 
-          read -p "Relancer le programme ? (O/N) : " rep
+         read -p "Relancer le programme ? (O/N) : " rep
          ;;
          *)
-          echo -e " \e[91m - Action non reconnu par le programme, saisissez un choix entre 1 et x \e[0m"
+         echo -e " \e[91m - Action non reconnu par le programme, saisissez un choix entre 1 et x \e[0m"
          ;;
       esac
       continue 
