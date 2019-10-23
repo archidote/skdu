@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo "------------------------------------------------------------------"
 echo "| scl - sconfig Linux  -  Brlndtech 2019 © AIO management Script |";  
 echo "------------------------------------------------------------------";
@@ -11,6 +12,7 @@ usercheck="root"
 choix=99
 # fin des var global 
 if [ $siroot = $usercheck ]; then
+#clear
 #  su - 
    echo -e "*---------------------------------------------------------------------------------------------------------*"
    echo -e "*  0)  !Installer programme de base                   6)  Modifier le mdp d'un utilisateur                *"
@@ -34,7 +36,10 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-date.sh
          ;;
          2)
+	 clear 
          curl -s wttr.in/?1 # you need to install curl / vous devez installer curl 
+         read
+         clear
          ;;
          3)
          ./src/monit-linux-maj-apt.sh
