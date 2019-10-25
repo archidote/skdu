@@ -42,5 +42,6 @@ nameserver $dns2
 EOF
 sudo netplan apply
 echo -e "\e[92m Your ip address has been changed ! (with netplan daemon) \e[0m"
+echo -e "Press Enter to continue" 
 read
 clear
