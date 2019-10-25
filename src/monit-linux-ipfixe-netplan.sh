@@ -40,6 +40,7 @@ search localdomain
 nameserver $dns1
 nameserver $dns2
 EOF
-clear
 sudo netplan apply
 echo -e "\e[92m Your ip address has been changed ! (with netplan daemon) \e[0m"
+read
+clear
