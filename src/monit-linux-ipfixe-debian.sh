@@ -45,3 +45,6 @@ EOF
 #systemctl restart networking
 ifup $nic
 echo -e "\e[92m Your ip address has been changed ! (/etc/network/interfaces) \e[0m"
+echo -e "Press enter to continue"
+read
+clear

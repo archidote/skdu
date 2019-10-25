@@ -22,10 +22,11 @@ if [ $siroot = $usercheck ]; then
    echo -e "*  4)  Nettoyage des paquets / dépots                 10) Résoudre pb de dpkg suite à une cmd apt update  *"
    echo -e "*  5)  Ajouter un utilisateur                         11) Résoudre pb E: Sub-process /usr/bin/dpkg        *"
    echo -e "*                                                                                                         *"
-   echo -e "*  29) DIST UPGRADE (Deb 9->10/ Ubuntu (Not-LTS)      12) Log de connexion utilisateur atcif/non-actif    *"
-   echo -e "*  30) Quitter le programme                           13) information général du serveur                  *"   
-   echo -e "*                                                     14) changer ip du serveur (main network interface)  *"
-   echo -e "                                                      15) change the hostname of the machine              *"
+   echo -e "*  12) Log ssh (failed or accepted password)          29) DIST UPGRADE (Deb 9->10/ Ubuntu (Not-LTS)       *" 
+   echo -e "*  13) information général du serveur                 30) Quitter le programme                            *"    
+   echo -e "*  14) changer ip du serveur (main network interface)                                                     *"
+   echo -e "*  15) change the hostname of the machine                                                                 *"
+   echo -e "*  16) Display all the users (real)                                                                       *"
    echo -e "*---------------------------------------------------------------------------------------------------------*"
    read -p "Choisir parmis les options 0-30 : " choix
    case $choix in
@@ -65,8 +66,8 @@ if [ $siroot = $usercheck ]; then
          11)
          ./src/monit-linux-dpkgpb2.sh
          ;;
-	      12)
-	      ./src/monit-linux-users.sh
+	     12)
+	     ./src/monit-linux-ssh-failed-logs.sh
          ;;
          13)
          ./src/monit-linux-info-sys.sh
@@ -76,6 +77,9 @@ if [ $siroot = $usercheck ]; then
       	 ;;
          15)
          ./src/monit-linux-hostname.sh
+         ;;
+         16) 
+         ./src/monit-linux-list-users.sh
          ;;
          29)
          ./src/monit-linux-dist-upgrade.sh
