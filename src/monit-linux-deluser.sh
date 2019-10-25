@@ -1,3 +1,5 @@
+#!/bin/bash
+clear
 echo -e "\e[93m "
 echo -e "En cours ... "
 echo -e "\e[0m";

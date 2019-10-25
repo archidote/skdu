@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo -e "Détection automatique de l'OS en cours ... "
 if [ "`cat /etc/issue | cut -c1-6`" == "Ubuntu" ] || [ "`cat /etc/issue | cut -c1-13`" == "elementary OS" ]; then
     echo -e "\e[92m Distribution : ubuntu (like) \e[0m "

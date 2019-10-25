@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo -e "Voulez vous installer les paquets suivants : htop / curl / sudo / nmap / net-tools ? (permet au programme de fonctionner de manière éfficiente) : (O/N)"
 read -p "" rep1
     if [ $rep1 == "O" ] || [ $rep1 == "o" ]; then

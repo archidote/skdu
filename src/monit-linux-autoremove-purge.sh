@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo -e "\e[93m"
 echo -e "Nettoyage du système en cours ... "
 echo -e "\e[0m"

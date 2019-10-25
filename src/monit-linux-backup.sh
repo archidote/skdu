@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 read -p "Entrer le chemin relatif ou absolue : " target  
 echo -e  "\e[33m Sauvegarde en cours ... \e[0m";
 cp -r $target /backup

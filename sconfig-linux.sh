@@ -35,11 +35,8 @@ if [ $siroot = $usercheck ]; then
          1)
          ./src/monit-linux-date.sh
          ;;
-         2)
-	 clear 
-         curl -s wttr.in/?1 # you need to install curl / vous devez installer curl 
-         read
-         clear
+         2) 
+         ./src/monit-linux-meteo.sh
          ;;
          3)
          ./src/monit-linux-maj-apt.sh

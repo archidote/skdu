@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 # for more infos, check my github : https://github.com/brlndtech/monit-linux-project
 #echo -e ''"Hostname :" $tecreset $HOSTNAME
 #cat /etc/os-release | grep 'NAME\|VERSION' | grep -v 'VERSION_ID' | grep -v 'PRETTY_NAME' > /tmp/osrelease

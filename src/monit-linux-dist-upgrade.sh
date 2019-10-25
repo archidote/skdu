@@ -1,4 +1,5 @@
 #!/bin/bash 
+clear
 echo -e "Détection automatique de l'OS en cours ... "
    if [ "`cat /etc/issue | cut -c1-6`" == "Ubuntu" ]; then
       echo -e "Votre système dexploitation est reconnu comme étant  \e[92m Ubuntu. \e[0m"

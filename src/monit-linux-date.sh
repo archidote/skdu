@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 daate=`date +%A`
   if [ $daate == "lundi" ]; then # change to monday for english speackers
      echo -e "\e[96m Hey :)  Va prendre un café : Nous sommes Lundi `date +%d/%m/%Y` \e[0m";

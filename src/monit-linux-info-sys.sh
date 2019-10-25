@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 ip=`ip -o -f inet addr show | awk '/scope global/ {print $4}' | head -1`
 hostname=`hostname -s`
 dnsdname=`hostname -d`

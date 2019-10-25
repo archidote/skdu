@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 # Creates a backup
 echo -e "\e[93m WARNING \e[0m, you will change the ip address of your server. Make sure that you have a physical access to him. TAP CTRL C for cancel the action"
 if [ -d "/etc/network/backup" ];then
