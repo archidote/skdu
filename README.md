@@ -14,3 +14,5 @@ cd sconfig-linux/
 ./sconfig-linux.sh
 
 ``` 
+
+WARNING : You need to be root for executing sconfig-linux
