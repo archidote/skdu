@@ -3,7 +3,7 @@ clear
 echo "------------------------------------------------------------------"
 echo "| scl - sconfig Linux  -  Brlndtech 2019 © AIO management Script |";  
 echo "------------------------------------------------------------------";
-read -p "Lancer le programme sconfig Linux  ? (O/N) : " rep
+read -p "Start the sconfig Linux programme ? (O/N) : " rep
 while [ $rep == "O" ] || [ $rep == "o" ]
 do
 # Déclaration des variables global : 
@@ -12,23 +12,22 @@ usercheck="root"
 choix=99
 # fin des var global 
 if [ $siroot = $usercheck ]; then
-#clear
 #  su - 
-   echo -e "*---------------------------------------------------------------------------------------------------------*"
-   echo -e "*  0)  !Installer programme de base                   6)  Modifier le mdp d'un utilisateur                *"
-   echo -e "*  1)  Message de bienvenue                           7)  Supprimer un utilisateur et son dossier         *"
-   echo -e "*  2)  Afficher la météo                              8)  Lancer l'utilitaire HTOP                        * "
-   echo -e "*  3)  Mise à jour des dépots                         9)  Sauvegarder un répertoire                       *"
-   echo -e "*  4)  Nettoyage des paquets / dépots                 10) Résoudre pb de dpkg suite à une cmd apt update  *"
-   echo -e "*  5)  Ajouter un utilisateur                         11) Résoudre pb E: Sub-process /usr/bin/dpkg        *"
-   echo -e "*                                                                                                         *"
-   echo -e "*  12) Log ssh (failed or accepted password)          29) DIST UPGRADE (Deb 9->10/ Ubuntu (Not-LTS)       *" 
-   echo -e "*  13) information général du serveur                 30) Quitter le programme                            *"    
-   echo -e "*  14) changer ip du serveur (main network interface)                                                     *"
-   echo -e "*  15) change the hostname of the machine                                                                 *"
-   echo -e "*  16) Display all the users (real)                                                                       *"
-   echo -e "*---------------------------------------------------------------------------------------------------------*"
-   read -p "Choisir parmis les options 0-30 : " choix
+   echo -e "*-------------------------------------------------------------------------------------------------------*"
+   echo -e "*  0)  !Installer programme de base                   6)  Change the password of an user                *"
+   echo -e "*  1)  Welcome message                                7)  Delete an user and his /home/user folder      *"
+   echo -e "*  2)  Display the weather                            8)  HTOP                                          * "
+   echo -e "*  3)  apt update && apt upgrade                      9)  Make a quick backup of a folder               *"
+   echo -e "*  4)  apt autoremove && apt purge                    10) solve the dpkg error after the cmd apt update *"
+   echo -e "*  5)  Add a new user                                 11) solve E: Sub-process /usr/bin/dpkg            *"
+   echo -e "*                                                                                                       *"
+   echo -e "*  12) Log ssh (failed or accepted password)          29) DIST UPGRADE (Deb 9->10/ Ubuntu (Not-LTS)     *" 
+   echo -e "*  13) About your server                              30) Leave the pgm                                 *"    
+   echo -e "*  14) Change your IP (main network interface)                                                          *"
+   echo -e "*  15) change the hostname of the machine                                                               *"
+   echo -e "*  16) Display all the users (real)                                                                     *"
+   echo -e "*-------------------------------------------------------------------------------------------------------*"
+   read -p "Make your choice between 0-30 : " choix
    case $choix in
          0)
          ./src/monit-linux-verification-paquets.sh
@@ -43,7 +42,7 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-maj-apt.sh
          ;;
          4)
-	      ./src/monit-linux-autoremove-purge.sh
+	     ./src/monit-linux-autoremove-purge.sh
          ;;
          5) # ajout d'un utilisateur 
          ./src/monit-linux-adduser.sh
@@ -55,7 +54,7 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-deluser.sh 
          ;;
          8) 
-          htop
+         htop
          ;;
          9)
          ./src/monit-linux-backup.sh
@@ -85,19 +84,19 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-dist-upgrade.sh
          ;;
          30)
-         echo -e " \e[92m  Vous avez mis fin du programme. à bientôt :) \e[0m "
+         echo -e " \e[92m  You have leaved sconfig-linux. See you soon :) \e[0m "
          break;
          ;;
          99) # mode debug 
-         read -p "Relancer le programme ? (O/N) : " rep
+         read -p "Revive the programme ? " rep
          ;;
          *)
-         echo -e " \e[91m - Action non reconnu par le programme, saisissez un choix entre 1 et x \e[0m"
+         echo -e " \e[91m - 001 - Unknow operation, please enter a number between 0 and 30 \e[0m"
          ;;
       esac
       continue 
 else 
-   echo -e " \e[91m - ||| Impossible d'éxécuter le script dans ces conditions ||| - \e[0m";
+   echo -e " \e[91m - ||| Unable to execute sconfig-linux in these conditions : please follow the README.md, to solve the problem ||| - \e[0m";
    exit; 
 fi
 done # fin de la boucle
