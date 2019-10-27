@@ -15,7 +15,7 @@ echo -e "Détection automatique de l'OS en cours ... "
          echo " \e[93m Vous avez annulé la mise à jour de ubuntu \e[0m "
       fi
     elif [ "`cat /etc/issue | cut -c1-6`" == "Debian" ]; then
-      echo -e "Votre système dexploitation est reconnu comme étant \e[92m Debian. (ATTENTION l'option mis à jours est seulement disponnible pr debian 9)"
+      echo -e "Votre système dexploitation est reconnu comme étant \e[92m Debian \e[0m. (ATTENTION l'option mis à jours est seulement disponnible pr debian 9)"
       read -p "Voulez vous mettre à jour votre Système d'exploitation Debian ? (O/N) " rep1
       read -p "Attention, cette action ne peut pas être stoppé. Une dernière fois ETES VOUS SUR ? (O/N)" rep1
       if [ $rep1 == "O" ] || [ $rep1 == "o" ]; then
