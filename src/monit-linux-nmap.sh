@@ -16,26 +16,35 @@ echo -e "6) Leave nmap sub-menu"
 read -p "Select an option : " nmap_rep
 case $nmap_rep in
         1)
-                read -p "Enter your network ip/cidr (like : 192.168.0.0/24) :" networkIP
-		nmap -sP $networkIP 
+                read -p "Enter your network ip/cidr (like : 192.168.0.0/24) : " networkIP
+		echo -e "if you want to follow the advancement of the current process, press ENTER" 
+		nmap -sP $networkIP
+		echo -e "Press enter to continue"
+		read 
+		clear 
                 ;;
         2)
-		read -p "Enter your the target's IP (like : 192.168.0.1) :" networkIP
+		read -p "Enter your the target's IP (like : 192.168.0.1) : " networkIP
 		echo -e "if you want to follow the advancement of the current process, press ENTER" 
 		nmap -p 1-65535 $networkIP
+		echo -e "Press enter to continue"
+                read
+		clear
                 ;;
         3)
-                read -p "Enter your the target's IP (like : 192.168.0.1) :" networkIP
+                read -p "Enter your the target's IP (like : 192.168.0.1) : " networkIP
                 echo -e "if you want to follow the advancement of the current process, press ENTER "
 		nmap -sU $networkIP
+		echo -e "Press enter to continue"
+                read
+		clear
                 ;;
         6)
 		echo ""
 		break;
 		;;
-	*)
-                echo "J'te connais pas, ouste !"
-		;;
+	*)      echo "Enter ONLY an option between 1-6"
+                ;;
 esac
 continue 
 done
