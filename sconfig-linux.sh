@@ -80,6 +80,9 @@ if [ $siroot = $usercheck ]; then
          16) 
          ./src/monit-linux-list-users.sh
          ;;
+	 17)
+	 ./src/monit-linux-nmap.sh
+	 ;;
          29)
          ./src/monit-linux-dist-upgrade.sh
          ;;
