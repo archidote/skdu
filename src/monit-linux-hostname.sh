@@ -1,7 +1,8 @@
 #!/bin/bash
 clear
 read -p "enter the new hostname of your machine (like : debian ) : " hostname
-read -p "enter the .tld for the hostname (like .com)"tld
+read -p "enter the .tld for the hostname (like .com) : " tld
+#hostn4me="$hostname.$tld"
 hostnamectl set-hostname $hostname.$tld
 sed -i -r "s/.*127.0.0.1.*/127.0.0.1 $hostname.$tld $hostname /g" /etc/hosts
 sed -i -r "s/.*127.0.1.1.*/127.0.1.1 $hostname.$tld $hostname /g" /etc/hosts

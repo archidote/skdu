@@ -26,6 +26,7 @@ if [ $siroot = $usercheck ]; then
    echo -e "*  14) Change your IP (main network interface)                                                          *"
    echo -e "*  15) change the hostname of the machine                                                               *"
    echo -e "*  16) Display all the users (real)                                                                     *"
+   echo -e "*  17) nmap advanded tool for pentest                                                                   *"
    echo -e "*-------------------------------------------------------------------------------------------------------*"
    read -p "Make your choice between 0-30 : " choix
    case $choix in
