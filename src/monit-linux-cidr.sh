@@ -41,6 +41,5 @@ do
     clear
   else 
     echo -e "Masque incorect !"
-    read -p "Entrer un /CIDR 1-32 : " cidr
   fi
 done 
