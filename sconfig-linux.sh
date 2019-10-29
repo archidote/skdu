@@ -85,7 +85,7 @@ if [ $siroot = $usercheck ]; then
 		 ./src/monit-linux-nmap.sh
 		 ;;
 		 18)
-		 ./src/monit-linux-cidr.sh
+		 ./src/monit-linux-flsm.sh
 		 ;;
 	     29)
          ./src/monit-linux-dist-upgrade.sh
