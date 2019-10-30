@@ -19,7 +19,7 @@ clear
 while [ $startt = 'O' ] || [ $startt = 'o' ]
 do
   read -p "Entrer un /CIDR 1-32 : " cidr
-  if [ $cidr -gt 0 ] && [ $cidr -le 8 ]; then 
+  if [ $cidr -gt 0 ] && [ $cidr -lt 8 ]; then 
     # let " xposant= 32 - $cidr "
     let " res = 2 ** cidr "
     let " pas = 256 / $res "
@@ -29,7 +29,7 @@ do
     echo -e "wildcard mask = $wildcard.255.255.255"
     read -p "Saisir un autre masque ? (O/N) : " startt 
     clear
-  elif [ $cidr -gt 8 ] && [ $cidr -le 16 ]; then 
+  elif [ $cidr -ge 8 ] && [ $cidr -lt 16 ]; then 
     # let " xposant= 32 - $cidr "
     read -p "Entrer une @ ipv4 : " ipv4
     ip_1octet=`echo $ipv4 | cut -f1 -d.`
@@ -40,6 +40,7 @@ do
     let " dernier = pas - 1"
     let " netmask = 256 - $pas "
     let " wildcard = $pas - 1 "
+    echo
     echo -e "$ip_cut/$cidr"
     echo
       for ((i = 0 ; i <= 255; i += $pas))
@@ -64,9 +65,10 @@ do
       echo
     echo -e "/$cidr en décimal pointé = 255.$netmask.0.0"
     echo -e "wildcard mask = 0.$wildcard.255.255"
+    echo
     read -p "Saisir un autre masque ? (O/N) : " startt
     clear
-  elif [ $cidr -gt 16 ] && [ $cidr -le 24 ]; then 
+  elif [ $cidr -ge 16 ] && [ $cidr -lt 24 ]; then 
     # let " xposant= 32 - $cidr "
     read -p "Entrer une @ ipv4 : " ipv4
     ip_1octet=`echo $ipv4 | cut -f1 -d.`
@@ -80,6 +82,7 @@ do
     let " wildcard = $pas - 1 "
     echo
     echo -e "$ip_cut/$cidr"
+    echo
       for ((i = 0 ; i <= 255; i += $pas))
       do
         echo -e "Res @ : $ip_1octet.$ip_2octet.$i.0"
@@ -99,13 +102,13 @@ do
       do
         echo -e "Broadcast @ :  $ip_1octet.$ip_2octet.$j.255"
       done 
-      echo
-    echo ""
+    echo
     echo -e "/$cidr en décimal pointé = 255.255.$netmask.0"
     echo -e "wildcard mask = 0.0.$wildcard.255"
+    echo
     read -p "Saisir un autre masque ? (O/N) : " startt
     clear
-  elif [ $cidr -gt 24 ] && [ $cidr -le 32 ]; then
+  elif [ $cidr -ge 24 ] && [ $cidr -lt 32 ]; then
     read -p "Entrer une @ ipv4 : " ipv4
     ip_1octet=`echo $ipv4 | cut -f1 -d.`
     ip_2octet=`echo $ipv4 | cut -f2 -d.`
@@ -118,7 +121,9 @@ do
     let " dernier = pas - 1"
     let " netmask = 256 - $pas "
     let " wildcard = $pas - 1 "
+    echo
     echo -e "$ip_cut/$cidr"
+    echo
       for ((i = 0 ; i <= 255; i += $pas))
       do
         echo -e "Res @ : $ip_1octet.$ip_2octet.$ip_3octet.$i"
@@ -139,12 +144,14 @@ do
       do
         echo -e "Broadcast @ :  $ip_1octet.$ip_2octet.$ip_3octet.$j"
       done
-      echo
+    echo
     echo -e "/$cidr en décimal pointé = 255.255.255.$netmask"
     echo -e "wildcard mask = 0.0.0.$wildcard"
+    echo
     read -p "Saisir un autre masque ? (O/N) : " startt
     clear
   else 
     echo -e "Masque incorect !"
   fi
-done 
+done
+echo "A+"
