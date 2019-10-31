@@ -93,6 +93,7 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-dist-upgrade.sh
          ;;
          30)
+	 clear
          echo -e " \e[92m  You have leaved sconfig-linux. See you soon :) \e[0m "
          break;
          ;;
