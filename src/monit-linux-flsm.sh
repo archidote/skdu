@@ -154,4 +154,4 @@ do
     echo -e "Masque incorect !"
   fi
 done
-echo "A+"
+# echo "A+"
