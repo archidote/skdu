@@ -21,13 +21,14 @@ if [ $siroot = $usercheck ]; then
    echo -e "*  4)  apt autoremove && apt purge                    10) solve the dpkg error after the cmd apt update *"
    echo -e "*  5)  Add a new user                                 11) solve E: Sub-process /usr/bin/dpkg            *"
    echo -e "*                                                                                                       *"
-   echo -e "*  12) Log ssh (failed or accepted password)          29) DIST UPGRADE (Deb 9->10/ Ubuntu (Not-LTS)     *" 
-   echo -e "*  13) About your server                              30) Leave the pgm                                 *"    
+   echo -e "*  12) Log ssh (failed or accepted password)          18) Subnneting tool (FLSM)                        *" 
+   echo -e "*  13) About your server                              19) CIDR Convertor (Netmask / Wildcard Mask       *"    
    echo -e "*  14) Change your IP (main network interface)                                                          *"
    echo -e "*  15) change the hostname of the machine                                                               *"
    echo -e "*  16) Display all the users (real)                                                                     *"
-   echo -e "*  17) nmap advanded tool for pentest                                                                   *"
-   echo -e "*  18) Subnneting tool (FLSM)                                                                           *"
+   echo -e "*  17) nmap advanded tool for pentest                 29) DIST UPGRADE (Deb 9->10/ Ubuntu (Not-LTS)     *"
+   echo -e "*                                                                                                       *"
+   echo -e "*  					 30) Leave the pgm 	                                            *"
    echo -e "*-------------------------------------------------------------------------------------------------------*"
    read -p "Make your choice between 0-30 : " choix
    case $choix in
