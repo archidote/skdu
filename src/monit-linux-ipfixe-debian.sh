@@ -2,12 +2,14 @@
 clear
 # Creates a backup
 echo -e "\e[93m WARNING \e[0m, you will change the ip address of your server. Make sure that you have a physical access to him. TAP CTRL C for cancel the action"
+echo -e ""
 if [ -d "/etc/network/backup" ];then
     echo ""
 	# echo "Le dossier /etc/netplan/backup est déjà présent sur le système";
 else
 	mkdir /etc/network/backup
 	echo "/etc/network/backup has been created ! "
+	echo -e "Nb : a backup of your current configuration file (/etc/network/interfaces) has been released check /etc/network/backup/* for more"
 fi
 cp /etc/network/interfaces /etc/network/backup/interfaces_backup_`date +%Y%m%d%H%M`
 # Changes dhcp from 'yes' to 'no'
@@ -15,7 +17,7 @@ cp /etc/network/interfaces /etc/network/backup/interfaces_backup_`date +%Y%m%d%H
 # Retrieves the NIC information
 nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2- | head -1`
 # Ask for input on network configuration
-ifdown $nic
+/usr/sbin/ifdown $nic
 read -p "Enter the static IP : " staticip
 read -p "Entrer the netmask : " netmask
 read -p "Enter the IP of your gateway : " gateway
@@ -43,7 +45,7 @@ nameserver $dns1
 nameserver $dns2
 EOF
 #systemctl restart networking
-ifup $nic
+/usr/sbin/ifup $nic
 echo -e "\e[92m Your ip address has been changed ! (/etc/network/interfaces) \e[0m"
 echo -e "Press enter to continue"
 read

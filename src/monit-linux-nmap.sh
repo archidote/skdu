@@ -12,7 +12,8 @@ echo -e "  2) Scan entire TCP port ranges (1-65535)  "
 echo -e "  3) Scan entire UDP port ranges : "
 echo -e "  4) Brute force SSH attaque (only port on 22)"
 echo -e "  5) Check potential vulnerabilities of your system"
-echo -e "  6) Leave nmap sub-menu"
+echo -e "  6) Slowloris pentest against a target"
+echo -e "  7) Leave nmap sub-menu"
 read -p "Select an option : " nmap_rep
 case $nmap_rep in
         1)
@@ -55,10 +56,16 @@ case $nmap_rep in
                 read
 		;;
         6)
-		echo ""
-		break;
+		read -p "Enter your the target's IP (like : 192.168.0.1) : " networkIP
+                echo -e "if you want to follow the advancement of the current process, press ENTER "
+                nmap -p 80,443 --max-parallelism 750 -Pn --script http-slowloris $networkIP
+                echo -e  " Press enter to continue "
+                read
 		;;
-	*)      echo "Enter ONLY an option between 1-6"
+	7)
+		break
+		;;
+	*)      echo "Enter ONLY an option between 1-7"
                 ;;
 esac
 continue 

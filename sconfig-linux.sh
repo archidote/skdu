@@ -12,7 +12,6 @@ usercheck="root"
 choix=99
 # fin des var global 
 if [ $siroot = $usercheck ]; then
-#  su - 
    echo -e "*-------------------------------------------------------------------------------------------------------*"
    echo -e "*  0)  !Installer programme de base                   6)  Change the password of an user                *"
    echo -e "*  1)  Welcome message                                7)  Delete an user and his /home/user folder      *"
@@ -83,13 +82,16 @@ if [ $siroot = $usercheck ]; then
          16) 
          ./src/monit-linux-list-users.sh
          ;;
-		 17)
-		 ./src/monit-linux-nmap.sh
-		 ;;
-		 18)
-		 ./src/monit-linux-flsm.sh
-		 ;;
-	     29)
+	 17)
+         ./src/monit-linux-nmap.sh
+	 ;;
+	 18)
+	 ./src/monit-linux-flsm.sh
+	 ;;
+	 19)
+	 ./src/monit-linux-cidr-convertor.sh
+	 ;;
+	 29)
          ./src/monit-linux-dist-upgrade.sh
          ;;
          30)
