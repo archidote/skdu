@@ -3,10 +3,10 @@ clear
 x=0
 echo -e "REMEMBER, The scanning of ports can be considered illegal. It should not be used by an administrator on his own network to check his security."
 echo -e ""
+echo -e " - Sub menu for do some pentest into a network - "
 while [ x != 1 ] 
 do
 echo -e ""
-echo -e "Select an option : "
 echo -e "  1) Scan network for connected device(s) "
 echo -e "  2) Scan entire TCP port ranges (1-65535)  "
 echo -e "  3) Scan entire UDP port ranges : "

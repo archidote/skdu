@@ -13,89 +13,80 @@ choix=99
 # fin des var global 
 if [ $siroot = $usercheck ]; then
    echo -e "*-------------------------------------------------------------------------------------------------------*"
-   echo -e "*  0)  !Installer programme de base                   6)  Change the password of an user                *"
-   echo -e "*  1)  Welcome message                                7)  Delete an user and his /home/user folder      *"
-   echo -e "*  2)  Display the weather                            8)  HTOP                                          * "
-   echo -e "*  3)  apt update && apt upgrade                      9)  Make a quick backup of a folder               *"
-   echo -e "*  4)  apt autoremove && apt purge                    10) solve the dpkg error after the cmd apt update *"
-   echo -e "*  5)  Add a new user                                 11) solve E: Sub-process /usr/bin/dpkg            *"
+   echo -e "*  0)  !Installer programme de base                12) HTOP                                             *"
+   echo -e "*  2)  Welcome message                             14) Backup a folder very fast into /backup/target    *"
+   echo -e "*  4)  Display the weather                         16) Solve the dpkg error after the cmd apt update    * "
+   echo -e "*  6)  apt update && apt upgrade                   18) Solve the dpkg error after the cmd apt update    *"
+   echo -e "*  8)  apt autoremove && apt purge                 20) monit-linux-ssh-failed-logs                      *"
+   echo -e "*  10) Manager user (add/del/info)                 22) Info about your sys                              *"
    echo -e "*                                                                                                       *"
-   echo -e "*  12) Log ssh (failed or accepted password)          18) Subnneting tool (FLSM)                        *" 
-   echo -e "*  13) About your server                              19) CIDR Convertor (Netmask / Wildcard Mask       *"    
-   echo -e "*  14) Change your IP (main network interface)                                                          *"
-   echo -e "*  15) change the hostname of the machine                                                               *"
-   echo -e "*  16) Display all the users (real)                                                                     *"
-   echo -e "*  17) nmap advanded tool for pentest                 29) DIST UPGRADE (Deb 9->10/ Ubuntu (Not-LTS)     *"
-   echo -e "*                                                                                                       *"
-   echo -e "*  					 30) Leave the pgm 	                                            *"
+   echo -e "*  24) Change your server IP                                                                                                     *"
+   echo -e "*  26) change your hostname                                                                      *"
+   echo -e "*  28) sub nmap menu for pentest                                          *"
+   echo -e "*  30) Flsm tool*"
+   echo -e "*  32) Masque convertor                                           *"
+   echo -e "*  34) DIST upgrade (debian 9->10/ ubuntu (non LTS)*"
+   echo -e ""
+   echo -e "*                                    100) Leave the pgm                                              *"
    echo -e "*-------------------------------------------------------------------------------------------------------*"
-   read -p "Make your choice between 0-30 : " choix
+   read -p "Make your choice between 0-100 : " choix
    case $choix in
          0)
          ./src/monit-linux-verification-paquets.sh
          ;;
-         1)
+         2)
          ./src/monit-linux-date.sh
          ;;
-         2) 
+         4) 
          ./src/monit-linux-meteo.sh
          ;;
-         3)
+         6)
          ./src/monit-linux-maj-apt.sh
          ;;
-         4)
-	     ./src/monit-linux-autoremove-purge.sh
+         8)
+	      ./src/monit-linux-autoremove-purge.sh
          ;;
-         5) # ajout d'un utilisateur 
-         ./src/monit-linux-adduser.sh
+         10) # sub menu for manager users
+         ./src/monit-linux-manage-users-sub-panel.sh
          ;;
-         6) # changer le mdp d'un utilisateur 
-         ./src/monit-linux-passwd.sh
-         ;;
-         7) # supprimer un utilisateur
-         ./src/monit-linux-deluser.sh 
-         ;;
-         8) 
+         12) 
          htop
          ;;
-         9)
+         14)
          ./src/monit-linux-backup.sh
          ;;
-         10)
+         16)
          ./src/monit-linux-dpkgpb1.sh
          ;;
-         11)
+         18)
          ./src/monit-linux-dpkgpb2.sh
          ;;
-	     12)
-	     ./src/monit-linux-ssh-failed-logs.sh
+	      20)
+	      ./src/monit-linux-ssh-failed-logs.sh
          ;;
-         13)
+         22)
          ./src/monit-linux-info-sys.sh
          ;; 
-         14)
-      	 ./src/monit-linux-networking.sh
-      	 ;;
-         15)
+         24)
+      	./src/monit-linux-networking.sh
+      	;;
+         26)
          ./src/monit-linux-hostname.sh
          ;;
-         16) 
-         ./src/monit-linux-list-users.sh
-         ;;
-	 17)
+	      28)
          ./src/monit-linux-nmap.sh
-	 ;;
-	 18)
-	 ./src/monit-linux-flsm.sh
-	 ;;
-	 19)
-	 ./src/monit-linux-cidr-convertor.sh
-	 ;;
-	 29)
+	      ;;
+	      30)
+	      ./src/monit-linux-flsm.sh
+      	;;
+      	32)
+      	./src/monit-linux-cidr-convertor.sh
+      	;;
+      	34)
          ./src/monit-linux-dist-upgrade.sh
          ;;
-         30)
-	 clear
+         100)
+	      clear
          echo -e " \e[92m  You have leaved sconfig-linux. See you soon :) \e[0m "
          break;
          ;;
