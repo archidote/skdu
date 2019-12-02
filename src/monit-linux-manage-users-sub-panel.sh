@@ -11,9 +11,9 @@ echo -e "  1) credentials info about an user "
 echo -e "  2) add a user"
 echo -e "  3) del an user "
 echo -e "  4) Change password of an user"
-echo -e "  5) Check potential vulnerabilities of your system"
-echo -e "  6) Slowloris pentest against a target"
-echo -e "  7) Leave nmap sub-menu"
+echo -e "  5) "
+echo -e "  6) "
+echo -e "  7) Leave this sub-menu"
 read -p "Select an option : " nmap_rep
 case $nmap_rep in
         1)

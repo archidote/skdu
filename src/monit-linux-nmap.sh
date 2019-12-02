@@ -2,8 +2,9 @@
 clear
 x=0
 echo -e "REMEMBER, The scanning of ports can be considered illegal. It should not be used by an administrator on his own network to check his security."
-echo -e ""
-echo -e " - Sub menu for do some pentest into a network - "
+echo -e "**************************************************"
+echo -e "| - Sub menu for do some pentest into a network - |"
+echo -e "**************************************************"
 while [ x != 1 ] 
 do
 echo -e ""
