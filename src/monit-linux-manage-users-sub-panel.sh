@@ -6,12 +6,13 @@ echo -e " - Sub menu for manager user credentials - "
 echo -e ""
 while [ x != 1 ] 
 do
+clear
 echo -e ""  
 echo -e "  1) credentials info about an user "
 echo -e "  2) add a user"
 echo -e "  3) del an user "
 echo -e "  4) Change password of an user"
-echo -e "  5) "
+echo -e "  5) Add a alias to a bashrc user"
 echo -e "  6) "
 echo -e "  7) Leave this sub-menu"
 read -p "Select an option : " nmap_rep
@@ -56,6 +57,17 @@ case $nmap_rep in
 		echo -e " \e[92m Le mot de passe de l'utilisateur $user a bien été changé  \e[0m"
 		;;
 		5)
+		clear
+		read -p "Entrer name of the user, to add an alias to his profile (ex cmd uu = apt update && apt upgrade) : " user
+		read -p "Enter the name of the alias (like uu) : " alias
+		read -p "Enter the command who will bind into the alias : " cmd
+		chmod 755 /home/$user/.bashrc
+		echo -e " \n # alias added by skdu \n alias $alias='$cmd'" >> /home/$user/.bashrc
+		source /home/$user/.bashrc
+		chmod 644 /home/$user/.bashrc
+		echo -e " the alias $alias has been add to your .bashrc (permanently) !"
+		echo -e "Press enter to continue"
+                read
 		;;
         6)
 		;;

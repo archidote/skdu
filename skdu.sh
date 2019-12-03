@@ -13,21 +13,21 @@ choix=99
 # fin des var global 
 if [ $siroot = $usercheck ]; then
    echo -e "*-------------------------------------------------------------------------------------------------------*"
-   echo -e "*  0)  !Installer programme de base                12) HTOP                                             *"
+   echo -e "*  0)  !Installer programme de base                12) Follow the system activities (process / user ...)*"
    echo -e "*  2)  Welcome message                             14) Backup a folder very fast into /backup/target    *"
    echo -e "*  4)  Display the weather                         16) Solve the dpkg error after the cmd apt update    * "
-   echo -e "*  6)  apt update && apt upgrade                   18) Solve the dpkg error after the cmd apt update    *"
-   echo -e "*  8)  apt autoremove && apt purge                 20) monit-linux-ssh-failed-logs                      *"
+   echo -e "*  6)  Apt update && apt upgrade                   18) Solve the dpkg error after the cmd apt update    *"
+   echo -e "*  8)  Apt autoremove && apt purge                 20) Monit-linux-ssh-failed-logs                      *"
    echo -e "*  10) Manager user (add/del/info)                 22) Info about your sys                              *"
    echo -e "*                                                                                                       *"
-   echo -e "*  24) Change your server IP                                                                                                     *"
-   echo -e "*  26) change your hostname                                                                      *"
-   echo -e "*  28) sub nmap menu for pentest                                          *"
-   echo -e "*  30) Flsm tool*"
-   echo -e "*  32) Masque convertor                                           *"
-   echo -e "*  34) DIST upgrade (debian 9->10/ ubuntu (non LTS)*"
-   echo -e ""
-   echo -e "*                                    100) Leave the pgm                                              *"
+   echo -e "*  24) Change your server IP                                                                            *"
+   echo -e "*  26) Change your hostname                                                                             *"
+   echo -e "*  28) Sub nmap menu for pentest                                                                        *"
+   echo -e "*  30) Flsm tool                                                                                        *"
+   echo -e "*  32) Masque convertor                                                                                 *"
+   echo -e "*  34) DIST upgrade (debian 9->10/ ubuntu (non LTS)                                                     *"
+   echo -e "*                                                                                                       *"
+   echo -e "*                                    100) Leave the pgm                                                 *"
    echo -e "*-------------------------------------------------------------------------------------------------------*"
    read -p "Make your choice between 0-100 : " choix
    case $choix in
@@ -50,7 +50,7 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-manage-users-sub-panel.sh
          ;;
          12) 
-         htop
+         ./src/monit-linux-activities.sh
          ;;
          14)
          ./src/monit-linux-backup.sh

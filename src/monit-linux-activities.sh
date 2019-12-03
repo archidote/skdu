@@ -10,9 +10,9 @@ while [ x != 1 ]
 do
 clear
 echo -e ""
-echo -e "  1) follow the general activities of the OS"
-echo -e "  2) follow the activities of an user "
-echo -e "  3) Scan entire UDP port ranges : "
+echo -e "  1) Follow the general activities of the OS"
+echo -e "  2) Follow the activities of an user "
+echo -e "  3) Check the latest commands (typed) of an user: "
 echo -e "  4) Leave the sub-menu"
 read -p "Select an option : " nmap_rep
 case $nmap_rep in
@@ -28,7 +28,8 @@ case $nmap_rep in
         read
 		clear
         ;;
-        3)
+        3)	read -p "Enter the name of an user : " user
+		cat /home/$user/.bash_history
 		echo -e "Press enter to continue"
         read
 		clear
