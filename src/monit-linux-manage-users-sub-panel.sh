@@ -58,19 +58,39 @@ case $nmap_rep in
 		;;
 		5)
 		clear
-		read -p "Entrer name of the user, to add an alias to his profile (ex cmd uu = apt update && apt upgrade) : " user
-		# if [ $cuser == "root" ]; then 
-		# else 
-		read -p "Enter the name of the alias (like uu) : " alias
-		read -p "Enter the command who will bind into the alias : " cmd
-		chmod 755 /home/$user/.bashrc
-		echo -e " \n # alias added by skdu \n alias $alias='$cmd'" >> /home/$user/.bashrc
-		source /home/$user/.bashrc
-		chmod 644 /home/$user/.bashrc
-		# fi 
-		echo -e " the alias $alias has been add to your .bashrc (permanently) !"
-		echo -e "Press enter to continue"
-                read
+		while [ x != 1 ]
+		do
+		read -p "Entrer name of the user, to add an alias to his profile (ex cmd uu = apt update) : " user
+		if [ $user == "root" ]; then 
+			read -p "Enter the name of the alias (like uu) : " alias
+			read -p "Enter the command who will bind into the alias : " cmd
+			chmod 755 /root/.bashrc
+			echo -e " \n# alias added by skdu \nalias $alias='$cmd'" >> /root/.bashrc
+			chmod 644 /root/.bashrc
+			source /root/.bashrc
+			# WARNING source /root/.bashrc is not enought to reload the root shell, so in the main program, I have had (at the end) exec bash.
+			# exec bash reload completly the shell of root (and .bashrc), so the alias will work succefully 
+			echo -e "The alias $alias has been add to your .bashrc for the $user user (permanently exept) !"
+			echo -e "Press enter to continue"
+        	read
+        	break
+		elif [ $(id -u $user) != "root" ]; then
+			read -p "Enter the name of the alias (like uu) : " alias
+			read -p "Enter the command who will bind into the alias : " cmd
+			chmod 755 /home/$user/.bashrc
+			echo -e " \n# alias added by skdu \nalias $alias='$cmd'" >> /home/$user/.bashrc
+			source /home/$user/.bashrc
+			chmod 644 /home/$user/.bashrc
+			echo -e "The alias $alias has been add to your .bashrc for the $user user (permanently exept) !"
+		    echo -e "Press enter to continue"
+            read
+            break
+		else 
+			echo -e "  \e[91m - Error -> unknow user !!!  \e[0m -"
+			continue
+		fi
+		done
+		clear
 		;;
         6)
 		;;

@@ -88,6 +88,8 @@ if [ $siroot = $usercheck ]; then
          100)
 	      clear
          echo -e " \e[92m  You have leaved sconfig-linux. See you soon :) \e[0m "
+         exec bash 
+         # reload bash of root for the alias (you can't directy do source /root/.bashrc) -> FUCK
          break;
          ;;
          99) # mode debug 
