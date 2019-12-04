@@ -59,12 +59,15 @@ case $nmap_rep in
 		5)
 		clear
 		read -p "Entrer name of the user, to add an alias to his profile (ex cmd uu = apt update && apt upgrade) : " user
+		# if [ $cuser == "root" ]; then 
+		# else 
 		read -p "Enter the name of the alias (like uu) : " alias
 		read -p "Enter the command who will bind into the alias : " cmd
 		chmod 755 /home/$user/.bashrc
 		echo -e " \n # alias added by skdu \n alias $alias='$cmd'" >> /home/$user/.bashrc
 		source /home/$user/.bashrc
 		chmod 644 /home/$user/.bashrc
+		# fi 
 		echo -e " the alias $alias has been add to your .bashrc (permanently) !"
 		echo -e "Press enter to continue"
                 read
