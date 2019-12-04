@@ -13,7 +13,7 @@ echo -e "  2) add a user"
 echo -e "  3) del an user "
 echo -e "  4) Change password of an user"
 echo -e "  5) Add a alias to a bashrc user"
-echo -e "  6) "
+echo -e "  6) List all the users "
 echo -e "  7) Leave this sub-menu"
 read -p "Select an option : " nmap_rep
 case $nmap_rep in
@@ -93,6 +93,11 @@ case $nmap_rep in
 		clear
 		;;
         6)
+		clear
+		grep bash /etc/passwd | cut -f1 -d:
+		#-d veut dire on coupe la ligne juste avant les : 
+		echo -e "Press enter to continue"
+		read
 		;;
 		7)
 		break

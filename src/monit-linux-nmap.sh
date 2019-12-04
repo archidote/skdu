@@ -63,11 +63,12 @@ case $nmap_rep in
                 echo -e  " Press enter to continue "
                 read
 		;;
-	7)
+		7)
 		break
 		;;
-	*)      echo "Enter ONLY an option between 1-7"
-                ;;
+		*)      
+		echo "Enter ONLY an option between 1-7"
+        ;;
 esac
 continue 
 done
