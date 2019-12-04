@@ -41,7 +41,7 @@ if [ $siroot = $usercheck ]; then
          ./src/monit-linux-meteo.sh
          ;;
          6)
-         ./src/monit-linux-maj-apt.sh
+         apt update && apt upgrade 
          ;;
          8)
 	      ./src/monit-linux-autoremove-purge.sh
