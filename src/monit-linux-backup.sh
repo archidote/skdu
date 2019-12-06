@@ -15,43 +15,52 @@ read -p "Select an option : " nmap_rep
 case $nmap_rep in
         1)
 		if [ -d "/backup" ];then
-			clear
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Sauvegarde en cours ... \e[0m";
-			cp -r $target /backup/$target-$(date +%d-%m-%Y-%H-%M-%S)
+			d=`date +%d-%m-%Y-%H-%M-%S`
+			folder="$target-$d"
+			folderFinal="$(echo $folder | cut -c2-)"
+			cp -r $target /backup/$folderFinal
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m Action éfféctuée. -> Dossier sauvegardé. Pour le visualiser : cd /backup$target \e[0m";
+			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folderFinal \e[0m";
 		else
-			clear
 			mkdir /backup
-			read -p "Enter the absolute PATH : " target  
+			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Sauvegarde en cours ... \e[0m";
-			cp -r $target /backup/$target-$(date +%d-%m-%Y-%H-%M-%S)
-			echo -e "\e[92m Action éfféctuée. -> Dossier sauvegardé. Pour le visualiser : cd /backup$target \e[0m";
+			d=`date +%d-%m-%Y-%H-%M-%S`
+			folder="$target-$d"
+			folderFinal="$(echo $folder | cut -c2-)"
+			cp -r $target /backup/$folderFinal
+			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
+			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folderFinal \e[0m";
 		fi
         ;;
         2)
 		if [ -d "/backup" ];then
-			clear
 			read -p "Enter the ABSOLUTE PATH : " target  
-			echo -e  "\e[33m Sauvegarde en cours ... \e[0m";
+			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
 			nameoftargz="$target-$d"
-			tar czvf $nameoftargz.tar.gz $target && mv /$nameoftargz.tar.gz /backup
+			nameoftargzFinal="$(echo $nameoftargz | cut -c2-)"
+			echo $nameoftargz
+			echo $nameoftargzFinal
+			tar czvf $nameoftargzFinal.tar.gz $target && mv $nameoftargzFinal.tar.gz /backup
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m Action éfféctuée. -> Dossier sauvegardé en .tar.gz. Pour le visualiser : cd /backup$target \e[0m";
-			echo -e " for decompress the tar.gz archive : tar -xvf archive.tar.gz"
+			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargzFinal.tar.tgz \e[0m";
+			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargzFinal.tar.tgz"
 		else
 			mkdir /backup
-			clear
 			read -p "Enter the ABSOLUTE PATH : " target  
-			echo -e  "\e[33m Sauvegarde en cours ... \e[0m";
+			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
 			nameoftargz="$target-$d"
-			tar czvf $nameoftargz.tar.gz $target && mv /$nameoftargz.tar.gz /backup
+			nameoftargzFinal="$(echo $nameoftargz | cut -c2-)"
+			echo $nameoftargz
+			echo $nameoftargzFinal
+			tar czvf $nameoftargzFinal.tar.gz $target && mv $nameoftargzFinal.tar.gz /backup
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m Action éfféctuée. -> Dossier sauvegardé en .tar.gz. Pour le visualiser : cd /backup$target \e[0m";
-			echo -e " for decompress the tar.gz archive : tar -xvf archive.tar.gz"
+			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargzFinal.tar.tgz \e[0m";
+			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargzFinal.tar.tgz"
 		fi
 		;;
 		4)
