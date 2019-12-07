@@ -1,1 +1,1 @@
-16-11 se renseigner sur la commande chage et implémenter qql fonctionnalités
+mis en place de cron for noobs 
