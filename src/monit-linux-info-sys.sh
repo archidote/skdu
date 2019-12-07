@@ -21,3 +21,6 @@ echo -e " DNS (2)         : DNS 1/ : $dns1  2/ $dns2                            
 echo -e " HDD /dev/sda1   :                                                                                               "
 echo -e " $hdd                                                                                                     "
 echo -e ""
+echo -e "Press enter to continue "
+read
+clear

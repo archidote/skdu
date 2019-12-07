@@ -23,7 +23,8 @@ case $nmap_rep in
 		echo ""  
 		chage -l $name 
 		echo "" 
-		echo "" 
+		echo "Press enter to continue"
+		read 
         ;;
         2)
 		clear
@@ -60,28 +61,28 @@ case $nmap_rep in
 		clear
 		while [ x != 1 ]
 		do
-		read -p "Entrer name of the user, to add an alias to his profile (ex cmd uu = apt update) : " user
+		read -p "Entrer name of the user, to add an alias to his profile (ex : root) : " user
 		if [ $user == "root" ]; then 
 			read -p "Enter the name of the alias (like uu) : " alias
-			read -p "Enter the command who will bind into the alias : " cmd
+			read -p "Enter the command who will bind into the alias (ex : apt update && apt upgrade) : " cmd
 			chmod 755 /root/.bashrc
 			echo -e " \n# alias added by skdu \nalias $alias='$cmd'" >> /root/.bashrc
 			chmod 644 /root/.bashrc
 			source /root/.bashrc
 			# WARNING source /root/.bashrc is not enought to reload the root shell, so in the main program, I have had (at the end) exec bash.
 			# exec bash reload completly the shell of root (and .bashrc), so the alias will work succefully 
-			echo -e "The alias $alias has been add to your .bashrc for the $user user (permanently exept) !"
+			echo -e "The alias $alias has been add to your .bashrc for the $user user (permanently) !"
 			echo -e "Press enter to continue"
         	read
         	break
 		elif [ $(id -u $user) != "root" ]; then
-			read -p "Enter the name of the alias (like uu) : " alias
-			read -p "Enter the command who will bind into the alias : " cmd
+			read -p "Enter the name of the alias (ex :  md) : " alias
+			read -p "Enter the command who will bind into the alias (ex : mkdir) : " cmd
 			chmod 755 /home/$user/.bashrc
 			echo -e " \n# alias added by skdu \nalias $alias='$cmd'" >> /home/$user/.bashrc
 			source /home/$user/.bashrc
 			chmod 644 /home/$user/.bashrc
-			echo -e "The alias $alias has been add to your .bashrc for the $user user (permanently exept) !"
+			echo -e "The alias $alias has been add to the .bashrc file for the $user user (permanently) !"
 		    echo -e "Press enter to continue"
             read
             break

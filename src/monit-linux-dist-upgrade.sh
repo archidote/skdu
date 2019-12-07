@@ -10,18 +10,22 @@ echo -e "Détection automatique de l'OS en cours ... "
           sudo apt update && apt upgrade
           sudo apt-get install do-release-upgrade
           sudo do-release-upgrade
-          echo -e " \e[92m  Votre système Ubuntu est à jours ! \e[0m "
+          echo -e " \e[92m  Votre système Ubuntu est à jour ! \e[0m "
+	  echo -e " Press enter to continue "
+          read
       else 
          echo " \e[93m Vous avez annulé la mise à jour de ubuntu \e[0m "
       fi
     elif [ "`cat /etc/issue | cut -c1-6`" == "Debian" ]; then
-      echo -e "Votre système dexploitation est reconnu comme étant \e[92m Debian \e[0m. (ATTENTION l'option mis à jours est seulement disponnible pr debian 9)"
+      echo -e "Votre système dexploitation est reconnu comme étant \e[92m Debian \e[0m. (ATTENTION l'option mis à jours est seulement disponnible pr debian 9 --> debian 10)"
       read -p "Voulez vous mettre à jour votre Système d'exploitation Debian ? (O/N) " rep1
       read -p "Attention, cette action ne peut pas être stoppé. Une dernière fois ETES VOUS SUR ? (O/N)" rep1
       if [ $rep1 == "O" ] || [ $rep1 == "o" ]; then
            sed -i 's/stretch/buster/g' /etc/apt/sources.list # ajout du dépot pour pemettre de down la maj 
            apt-get update && apt-get upgrade && apt-get dist-upgrade # déclemenchement du processus de la MAJ.
            echo -e "\e[92m  Votre système debian est à jour ! \e[0m "
+	   echo -e " Press enter to continue "
+	   read
       else
            echo -e "\e[93m Vous avez annulé la mise à jour de de Debian. \e[0m"
       fi

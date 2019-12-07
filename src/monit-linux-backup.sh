@@ -2,7 +2,7 @@
 clear
 x=0
 echo -e "**************************************************"
-echo -e "| - Sub menu for do some backups - |"
+echo -e "| ---       Sub menu for do some backups     --- |"
 echo -e "**************************************************"
 while [ x != 1 ] 
 do
