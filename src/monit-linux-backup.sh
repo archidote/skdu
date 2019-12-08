@@ -19,20 +19,19 @@ case $nmap_rep in
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
 			folder="$target-$d"
-			folderFinal="$(echo $folder | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
-			cp -r $target /backup/$folderFinal
+			cp -r $target /backup/$folder
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folderFinal \e[0m";
+			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folder \e[0m";
 		else
 			mkdir /backup
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
 			folder="$target-$d"
-			folderFinal="$(echo $folder | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
-			cp -r $target /backup/$folderFinal
+			# folderFinal="$(echo $folder | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
+			cp -r $target /backup/$folder
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folderFinal \e[0m";
+			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folder \e[0m";
 		fi
         ;;
         2)
@@ -41,22 +40,22 @@ case $nmap_rep in
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
 			nameoftargz="$target-$d"
-			nameoftargzFinal="$(echo $nameoftargz | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
-			tar czvf $nameoftargzFinal.tar.gz $target && mv $nameoftargzFinal.tar.gz /backup
+			# nameoftargzFinal="$(echo $nameoftargz | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
+			tar czvf /backup/$nameoftargz.tar.gz $target
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargzFinal.tar.tgz \e[0m";
-			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargzFinal.tar.tgz"
+			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargz.tar.tgz \e[0m";
+			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargz.tar.tgz"
 		else
 			mkdir /backup
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
 			nameoftargz="$target-$d"
-			nameoftargzFinal="$(echo $nameoftargz | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
-			tar czvf $nameoftargzFinal.tar.gz $target && mv $nameoftargzFinal.tar.gz /backup
+			# nameoftargzFinal="$(echo $nameoftargz | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
+			tar czvf $nameoftargz.tar.gz $target
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargzFinal.tar.tgz \e[0m";
-			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargzFinal.tar.tgz"
+			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargz.tar.tgz \e[0m";
+			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargz.tar.tgz"
 		fi
 		;;
 		3)
@@ -65,10 +64,10 @@ case $nmap_rep in
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
 			folder="$target-$d"
-			folderFinal="$(echo $folder | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
-			zip -r /backup/$folderFinal.zip $target
+			# folderFinal="$(echo $folder | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
+			zip -r /backup/$folder.zip $target
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folderFinal.zip \e[0m";
+			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folder.zip \e[0m";
 			echo -e "For decompress the .zip archive go into /backup and : unzip $folderFinal.zip "
 		else
 			mkdir /backup
@@ -76,18 +75,18 @@ case $nmap_rep in
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
 			folder="$target-$d"
-			folderFinal="$(echo $folder | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
-			zip -r /backup/$folderFinal.zip $target
+			# folderFinal="$(echo $folder | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
+			zip -r /backup/$folder.zip $target
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folderFinal.zip \e[0m";
-			echo -e "For decompress the .zip archive go into /backup and : unzip $folderFinal.zip "
+			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folder.zip \e[0m";
+			echo -e "For decompress the .zip archive go into /backup and : unzip $folder.zip "
 		fi
 		;;
 		4)
 		break
 		;;
 		*)      
-		echo "Enter ONLY an option between 1-7"
+		echo "Enter ONLY an option between 1-4"
         ;;
 esac
 continue 
