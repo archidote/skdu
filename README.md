@@ -1,18 +1,28 @@
-# sconfig-linux
-sconfig windows command for linux with a lot of features. Enjoy :) 
+# SKDU Project Swiss Knife Debian Ubuntu Project 
+SKDU project has been create, to . Enjoy :) 
 
 ## Install 
 
-on your linux server, run the following commands : 
+on your linux server (DEBIAN / CENTOS), run the following commands : 
 
 ``` 
 
 apt install git
-git clone https://github.com/brlndtech/sconfig-linux.git
-chmod 700 -R sconfig-linux/ 
-cd sconfig-linux/ 
-./sconfig-linux.sh
+git clone https://github.com/brlndtech/skdu
+chmod 700 -R skdu
+cd skdu 
+./skdu
 
 ``` 
 
 WARNING : You need to be root for executing sconfig-linux
+
+
+## Features & tools 
+
+
+
+## Issues 
+
+1 -  skdu is available only for debian family. Readhat family is not fully compatible. 
+
