@@ -1,9 +1,10 @@
 # SKDU Project Swiss Knife Debian Ubuntu Project 
-SKDU project has been create, to . Enjoy :) 
+SKDU project has been create to 
+facilitate the debian / ubuntu ... administration / monitoring. Enjoy :) 
 
-## Install 
+## Installation
 
-on your linux server (DEBIAN / CENTOS), run the following commands : 
+on your linux server (DEBIAN Family), run the following commands : 
 
 ``` 
 
@@ -24,5 +25,5 @@ WARNING : You need to be root for executing sconfig-linux
 
 ## Issues 
 
-1 -  skdu is available only for debian family. Readhat family is not fully compatible. 
+1 -  Skdu is available only for debian family. Readhat family is not fully compatible. 
 
