@@ -13,7 +13,7 @@ choix=99
 # fin des var global 
 if [ $siroot = $usercheck ]; then
    echo -e "*-------------------------------------------------------------------------------------------------------*"
-   echo -e "*  0)  !Installer programme de base                12) Follow the system activities (process / user ...)*"
+   echo -e "*  0)  !Install all the dependenties               12) Follow the system activities (process / user ...)*"
    echo -e "*  2)  Welcome message                             14) Backup a folder fast as a folder | .tar.gz | .zip*"
    echo -e "*  4)  Display the weather                         16) Solve the dpkg error after the cmd apt update    * "
    echo -e "*  6)  Apt update && apt upgrade                   18) Solve the dpkg error after the cmd apt update    *"
