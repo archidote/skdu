@@ -9,4 +9,6 @@ daaate=`date +%A`
   else 
      echo -e "\e[96m Hey :) Good morning, have a good day :) we are $daaate `date +%d/%m/%Y` ! \e[0m";
   fi
+echo -e "Press enter to continue"
+read
 

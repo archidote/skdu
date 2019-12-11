@@ -3,7 +3,7 @@ clear
 echo "------------------------------------------------------------------"
 echo "| scl - sconfig Linux  -  Brlndtech 2019 © AIO management Script |";  
 echo "------------------------------------------------------------------";
-read -p "Start the sconfig Linux programme ? (O/N) : " rep
+read -p "Start skdu ? (O/N) : " rep
 while [ $rep == "O" ] || [ $rep == "o" ]
 do
 # Déclaration des variables global : 
@@ -18,7 +18,7 @@ if [ $siroot = $usercheck ]; then
    echo -e "*  4)  Display the weather                         16) Solve the dpkg error after the cmd apt update    * "
    echo -e "*  6)  Apt update && apt upgrade                   18) Solve the dpkg error after the cmd apt update    *"
    echo -e "*  8)  Apt autoremove && apt purge                 20) Monit-linux-ssh-failed-logs                      *"
-   echo -e "*  10) Manager user (add/del/info)                 22) Info about your sys                              *"
+   echo -e "*  10) Manager user sub-menu (add/del/info)        22) Info about your sys                              *"
    echo -e "*                                                                                                       *"
    echo -e "*  24) Change your server IP                       36) Cron for noobs tool                              *"
    echo -e "*  26) Change your hostname                                                                             *"
@@ -107,4 +107,4 @@ else
    echo -e " \e[91m - ||| Unable to execute sconfig-linux in these conditions : please follow the README.md, to solve the problem ||| - \e[0m";
    exit; 
 fi
-done # fin de la boucle
+done # end of the boucle 

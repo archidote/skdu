@@ -10,7 +10,7 @@ dns1=`cat /etc/resolv.conf | grep -m 1 'nameserver' | cut -c12-`
 dns2=`cat /etc/resolv.conf | tail -1 | cut -c12-`
 hdd=`df -h /dev/sda1 --output=size,used,avail,pcent`
 echo -e "##########################################################################################################"
-echo -e "\e[92m                                     Information Concernant le système                         \e[0m"
+echo -e "\e[92m                                     Info about you system                                     \e[0m"
 echo -e "##########################################################################################################"
 echo -e " OS              : $os                                                                                                    "
 echo -e " Kernel          : $kernel"

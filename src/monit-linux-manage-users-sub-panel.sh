@@ -1,16 +1,16 @@
 #!/bin/bash
 clear
 x=0
-echo -e ""
-echo -e " - Sub menu for manager user credentials - "
-echo -e ""
+echo -e "*********************************************"
+echo -e "* - Sub menu for manager user credentials - *"
+echo -e "*********************************************"
 while [ x != 1 ] 
 do
 clear
 echo -e ""  
-echo -e "  1) credentials info about an user "
-echo -e "  2) add a user"
-echo -e "  3) del an user "
+echo -e "  1) Credentials info about an user "
+echo -e "  2) Add a user"
+echo -e "  3) Del an user "
 echo -e "  4) Change password of an user"
 echo -e "  5) Add a alias to a bashrc user"
 echo -e "  6) List all the users "
@@ -28,22 +28,19 @@ case $nmap_rep in
         ;;
         2)
 		clear
-		read -p "Entrer le nom de l'utilisateur à ajouter : " user  
+		read -p "Enter the new user (name...)  : " user  
 		/usr/sbin/adduser --force-badname $user
-		echo -e " \e[92m L'utilisateur $user a bien été crée et ajouté. Dossier personnel : /home/$user \e[0m"
+		echo -e " \e[92m The user $user has been created. Personnal folder location : /home/$user \e[0m"
 		echo -e "Press enter to continue"
 		read 
 		clear 
 		;;
         3)
 		clear
-		echo -e "\e[93m "
-		echo -e "En cours ... "
-		echo -e "\e[0m";
-		read -p "Entrer le nom de l'utilisateur à SUPPRIMER : " user  
+		read -p "Enter the name of the user to deleted him : " user  
 		/usr/sbin/deluser $user
 		rm -r /home/$user
-		echo -e " \e[92m L'utilisateur $user a bien été supprimé, ainsi que son dossier personnel /home/$user. \e[0m"
+		echo -e " \e[92m The user $user has been removed, as well as his personal folder /home/$user. \e[0m"
         echo -e "Press enter to continue"
 		read 
 		clear 
@@ -53,9 +50,9 @@ case $nmap_rep in
 		echo -e "\e[93m"
 		echo -e  "en cours ... "
 		echo -e "\e[0m";
-		read -p "Entrer le nom de l'utilisateur dont vous voulez changer le mdp : " user  
+		read -p "Enter the name of the user for changing his password : " user  
 		passwd $user
-		echo -e " \e[92m Le mot de passe de l'utilisateur $user a bien été changé  \e[0m"
+		echo -e " \e[92m The password of $user has been changed !  \e[0m"
 		;;
 		5)
 		clear

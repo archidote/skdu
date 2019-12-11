@@ -25,9 +25,9 @@ do
     let " pas = 256 / $res "
     let " netmask = 256 - $pas "
     let " wildcard = $pas - 1 "
-    echo -e "/$cidr en décimal pointé = $netmask.0.0.0"
+    echo -e "/$cidr in decimal = $netmask.0.0.0"
     echo -e "wildcard mask = $wildcard.255.255.255"
-    read -p "Saisir un autre masque ? (O/N) : " startt 
+    read -p "Grab an other mask ? (O/N) : " startt 
     clear
   elif [ $cidr -ge 8 ] && [ $cidr -lt 16 ]; then 
     # let " xposant= 32 - $cidr "
@@ -63,14 +63,14 @@ do
         echo -e "Broadcast @ : : $ip_1octet.$j.255.255"
       done 
       echo
-    echo -e "/$cidr en décimal pointé = 255.$netmask.0.0"
+    echo -e "/$cidr in decimal = 255.$netmask.0.0"
     echo -e "wildcard mask = 0.$wildcard.255.255"
     echo
-    read -p "Saisir un autre masque ? (O/N) : " startt
+    read -p "Grab an other mask ? (O/N) : " startt
     clear
   elif [ $cidr -ge 16 ] && [ $cidr -lt 24 ]; then 
     # let " xposant= 32 - $cidr "
-    read -p "Entrer une @ ipv4 : " ipv4
+    read -p "Enter an @ ipv4 : " ipv4
     ip_1octet=`echo $ipv4 | cut -f1 -d.`
     ip_2octet=`echo $ipv4 | cut -f2 -d.`
     ip_cut="$ip_1octet.$ip_2octet.0.0"
@@ -103,10 +103,10 @@ do
         echo -e "Broadcast @ :  $ip_1octet.$ip_2octet.$j.255"
       done 
     echo
-    echo -e "/$cidr en décimal pointé = 255.255.$netmask.0"
+    echo -e "/$cidr in decimal = 255.255.$netmask.0"
     echo -e "wildcard mask = 0.0.$wildcard.255"
     echo
-    read -p "Saisir un autre masque ? (O/N) : " startt
+    read -p "Grab an other mask ? (O/N) : " startt
     clear
   elif [ $cidr -ge 24 ] && [ $cidr -lt 32 ]; then
     read -p "Entrer une @ ipv4 : " ipv4
@@ -145,13 +145,13 @@ do
         echo -e "Broadcast @ :  $ip_1octet.$ip_2octet.$ip_3octet.$j"
       done
     echo
-    echo -e "/$cidr en décimal pointé = 255.255.255.$netmask"
+    echo -e "/$cidr in decimal = 255.255.255.$netmask"
     echo -e "wildcard mask = 0.0.0.$wildcard"
     echo
-    read -p "Saisir un autre masque ? (O/N) : " startt
+    read -p "Grab an other mask (O/N) : " startt
     clear
   else 
-    echo -e "Masque incorect !"
+    echo -e " Incorrect mask ! (1-32) "
   fi
 done
 # echo "A+"

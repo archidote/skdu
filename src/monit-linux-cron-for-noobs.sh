@@ -1,5 +1,4 @@
 #!/bin/bash
-# /etc/crontab -- 
 clear
 read -p "Enter the minutes (0-59) (ALL = *) : " min
 read -p "Enter the hour (0-23) (ALL = *) : " hour

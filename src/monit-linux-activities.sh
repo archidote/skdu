@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 clear
 x=0
 echo -e "REMEMBER, The scanning of ports can be considered illegal. It should not be used by an administrator on his own network to check his security."

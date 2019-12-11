@@ -52,6 +52,6 @@ do
     read -p "Saisir un autre masque CIDR ? (O/N) : " startt
     clear
   else 
-    echo -e "Masque incorect !"
+    echo -e "Masque incorect ! '(1-32) "
   fi
 done 
