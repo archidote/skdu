@@ -17,7 +17,7 @@ if [ $siroot = $usercheck ]; then
    echo -e "*  2)  Welcome message                             14) Backup a folder fast as a folder | .tar.gz | .zip*"
    echo -e "*  4)  Display the weather                         16) Solve the dpkg error after the cmd apt update    * "
    echo -e "*  6)  Apt update && apt upgrade                   18) Solve the dpkg error after the cmd apt update    *"
-   echo -e "*  8)  Apt autoremove && apt purge                 20) Monit-linux-ssh-failed-logs                      *"
+   echo -e "*  8)  Apt autoremove && apt purge                 20) Monit-linux-ssh-failed-logs (`date +%d-%m-%y`)   *"
    echo -e "*  10) Manager user sub-menu (add/del/info)        22) Info about your sys                              *"
    echo -e "*                                                                                                       *"
    echo -e "*  24) Change your server IP                       36) Cron for noobs tool                              *"
