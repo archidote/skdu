@@ -16,22 +16,21 @@ cd skdu
 
 ``` 
 
-WARNING : You need to be root for executing sconfig-linux
+**WARNING** : You need to be root for executing sconfig-linux
 
 
 ## Features & tools 
 
-
+Coming soon !
 
 ## Issues 
 
-1 -  Skdu is available only for debian family. Readhat family is not fully compatible. 
+1 -  Skdu is available only for debian family. **Readhat family is not fully compatible.** 
 
 
-### Errors Code 0xx 
+### Errors Code 
 
-
-
+Coming soon !
 
 #### <center>Brlndtech &copy; 2019-2020</center>
 
