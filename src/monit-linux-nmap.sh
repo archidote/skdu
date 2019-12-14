@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 x=0
-echo -e "REMEMBER, The scanning of ports can be considered illegal. It should not be used by an administrator on his own network to check his security."
+echo -e " \e[91m REMEMBER \e[0m , The scanning of ports can be considered illegal. It should not be used by an administrator on his own network to check his security."
 echo -e "**************************************************"
 echo -e "| - Sub menu for do some pentest into a network - |"
 echo -e "**************************************************"
@@ -15,6 +15,7 @@ echo -e "  4) Brute force SSH attaque (only port on 22)"
 echo -e "  5) Check potential vulnerabilities of your system"
 echo -e "  6) Slowloris pentest against a target"
 echo -e "  7) Leave nmap sub-menu"
+echo -e ""
 read -p "Select an option : " nmap_rep
 case $nmap_rep in
         1)
@@ -64,10 +65,12 @@ case $nmap_rep in
         read
 		;;
 		7)
+		clear
 		break
 		;;
-		*)      
-		echo "Enter ONLY an option between 1-7"
+		*)
+		clear
+		echo -e "\e[91m Enter ONLY an option between 1-7 \e[0m"
         ;;
 esac
 continue 

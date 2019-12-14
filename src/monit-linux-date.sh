@@ -11,4 +11,5 @@ daaate=`date +%A`
   fi
 echo -e "Press enter to continue"
 read
+clear
 

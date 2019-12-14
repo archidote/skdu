@@ -17,7 +17,7 @@ cp /etc/netplan/$locateNetplan /etc/netplan/backup/netplan_`date +%Y%m%d%H%M`
 nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2- | head -1`
 # echo $nic:
 # Ask for input on network configuration
-read -p "Enter the static IP in CIDR notation (ex :x.x.x.x/CIDR) : " staticip 
+read -p "Enter the static IP in CIDR notation (ex : 192.168.0.10/24) : " staticip 
 read -p "Enter the IP of your gateway : " gatewayip
 read -p "Enter the first dns ip : " dns1
 read -p "enter the second dns ip : " dns2
@@ -42,6 +42,7 @@ nameserver $dns2
 EOF
 sudo netplan apply
 echo -e "\e[92m Your ip address has been changed ! (with netplan daemon) \e[0m"
+echo -e "\e[92m Reboot your computer to apply definitly the modification \e[0m"
 echo -e "Press Enter to continue" 
 read
 clear

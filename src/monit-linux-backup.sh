@@ -15,6 +15,7 @@ read -p "Select an option : " nmap_rep
 case $nmap_rep in
         1)
 		if [ -d "/backup" ];then
+			clear
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
@@ -23,6 +24,7 @@ case $nmap_rep in
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
 			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folder \e[0m";
 		else
+			clear
 			mkdir /backup
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Loading ... \e[0m";
@@ -36,6 +38,7 @@ case $nmap_rep in
         ;;
         2)
 		if [ -d "/backup" ];then
+			clear
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
@@ -46,6 +49,7 @@ case $nmap_rep in
 			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargz.tar.tgz \e[0m";
 			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargz.tar.tgz"
 		else
+			clear
 			mkdir /backup
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Loading ... \e[0m";
@@ -60,6 +64,7 @@ case $nmap_rep in
 		;;
 		3)
 		if [ -d "/backup" ];then
+			clear
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
@@ -70,6 +75,7 @@ case $nmap_rep in
 			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folder.zip \e[0m";
 			echo -e "For decompress the .zip archive go into /backup and : unzip $folderFinal.zip "
 		else
+			clear
 			mkdir /backup
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Loading ... \e[0m";
@@ -83,10 +89,12 @@ case $nmap_rep in
 		fi
 		;;
 		4)
+		clear
 		break
 		;;
-		*)      
-		echo "Enter ONLY an option between 1-4"
+		*)
+		clear   
+		echo -e " \e[91m Enter ONLY an option between 1-4 \e[0m "
         ;;
 esac
 continue 

@@ -19,6 +19,7 @@ clear
 while [ $startt = 'O' ] || [ $startt = 'o' ]
 do
   read -p "Entrer un /CIDR 1-32 : " cidr
+  cidr=${cidr:-0}
   if [ $cidr -gt 0 ] && [ $cidr -lt 8 ]; then 
     # let " xposant= 32 - $cidr "
     let " res = 2 ** cidr "
@@ -27,11 +28,13 @@ do
     let " wildcard = $pas - 1 "
     echo -e "/$cidr in decimal = $netmask.0.0.0"
     echo -e "wildcard mask = $wildcard.255.255.255"
-    read -p "Grab an other mask ? (O/N) : " startt 
+    read -p "Grab an other mask ? (O/n) : " startt
+    startt=${startt:-O}
     clear
   elif [ $cidr -ge 8 ] && [ $cidr -lt 16 ]; then 
     # let " xposant= 32 - $cidr "
     read -p "Entrer une @ ipv4 : " ipv4
+    ipv4=${ipv4:-10.0.0.0}
     ip_1octet=`echo $ipv4 | cut -f1 -d.`
     ip_cut="$ip_1octet.0.0.0"
     let " exposant = $cidr - 8  "
@@ -66,11 +69,13 @@ do
     echo -e "/$cidr in decimal = 255.$netmask.0.0"
     echo -e "wildcard mask = 0.$wildcard.255.255"
     echo
-    read -p "Grab an other mask ? (O/N) : " startt
+    read -p "Grab an other mask ? (O/n) : " startt
+    startt=${startt:-O}
     clear
   elif [ $cidr -ge 16 ] && [ $cidr -lt 24 ]; then 
     # let " xposant= 32 - $cidr "
     read -p "Enter an @ ipv4 : " ipv4
+    ipv4=${ipv4:-172.16.0.0}
     ip_1octet=`echo $ipv4 | cut -f1 -d.`
     ip_2octet=`echo $ipv4 | cut -f2 -d.`
     ip_cut="$ip_1octet.$ip_2octet.0.0"
@@ -106,10 +111,12 @@ do
     echo -e "/$cidr in decimal = 255.255.$netmask.0"
     echo -e "wildcard mask = 0.0.$wildcard.255"
     echo
-    read -p "Grab an other mask ? (O/N) : " startt
+    read -p "Grab an other mask ? (O/n) : " startt
+    startt=${startt:-O}
     clear
   elif [ $cidr -ge 24 ] && [ $cidr -lt 32 ]; then
     read -p "Entrer une @ ipv4 : " ipv4
+    ipv4=${ipv4:-192.168.1.0}
     ip_1octet=`echo $ipv4 | cut -f1 -d.`
     ip_2octet=`echo $ipv4 | cut -f2 -d.`
     ip_3octet=`echo $ipv4 | cut -f3 -d.`
@@ -148,7 +155,8 @@ do
     echo -e "/$cidr in decimal = 255.255.255.$netmask"
     echo -e "wildcard mask = 0.0.0.$wildcard"
     echo
-    read -p "Grab an other mask (O/N) : " startt
+    read -p "Grab an other mask (O/n) : " startt
+    startt=${startt:-O}
     clear
   else 
     echo -e " Incorrect mask ! (1-32) "

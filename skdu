@@ -1,9 +1,10 @@
 #!/bin/bash
 clear
 echo "------------------------------------------------------------------"
-echo "| scl - sconfig Linux  -  Brlndtech 2019 © AIO management Script |";  
+echo "|          skdu -  Brlndtech 2019 © AIO management Script         |";  
 echo "------------------------------------------------------------------";
-read -p "Start skdu ? (O/N) : " rep
+read -p "Start skdu ? (O/n) : " rep
+rep=${rep:-O}
 while [ $rep == "O" ] || [ $rep == "o" ]
 do
 # Déclaration des variables global : 
@@ -12,23 +13,23 @@ usercheck="root"
 choix=99
 # fin des var global 
 if [ $siroot = $usercheck ]; then
-   echo -e "*-------------------------------------------------------------------------------------------------------*"
-   echo -e "*  0)  !Install all the dependenties               12) Follow the system activities (process / user ...)*"
-   echo -e "*  2)  Welcome message                             14) Backup a folder fast as a folder | .tar.gz | .zip*"
-   echo -e "*  4)  Display the weather                         16) Solve the dpkg error after the cmd apt update    * "
-   echo -e "*  6)  Apt update && apt upgrade                   18) Solve the dpkg error after the cmd apt update    *"
-   echo -e "*  8)  Apt autoremove && apt purge                 20) Monit-linux-ssh-failed-logs (`date +%d-%m-%y`)   *"
-   echo -e "*  10) Manager user sub-menu (add/del/info)        22) Info about your sys                              *"
-   echo -e "*                                                                                                       *"
-   echo -e "*  24) Change your server IP                       36) Cron for noobs tool                              *"
-   echo -e "*  26) Change your hostname                                                                             *"
-   echo -e "*  28) Sub nmap menu for pentest                                                                        *"
-   echo -e "*  30) Flsm tool                                                                                        *"
-   echo -e "*  32) Masque convertor                                                                                 *"
-   echo -e "*  34) DIST upgrade (debian 9->10/ ubuntu (non LTS)                                                     *"
-   echo -e "*                                                                                                       *"
-   echo -e "*                                    100) Leave the pgm                                                 *"
-   echo -e "*-------------------------------------------------------------------------------------------------------*"
+   echo -e "*--------------------------------------------------------------------------------------------------------*"
+   echo -e "*  0)  !Install all the dependenties               12) Follow the system activities (process / user ...) *"
+   echo -e "*  2)  Welcome message                             14) Backup a folder fast as a folder | .tar.gz | .zip *"
+   echo -e "*  4)  Display the weather                         16) Solve the dpkg error after the cmd apt update     *"
+   echo -e "*  6)  Apt update && apt upgrade                   18) Solve the dpkg error after the cmd apt update     *"
+   echo -e "*  8)  Apt autoremove && apt purge                 20) Monit-linux-ssh-failed-logs (`date +%d-%m-%y`)            *"
+   echo -e "*  10) Manager user sub-menu (add/del/info)        22) Info about your sys                               *"
+   echo -e "*                                                                                                        *"
+   echo -e "*  24) Change your server IP                       36) Cron for noobs tool                               *"
+   echo -e "*  26) Change your hostname                                                                              *"
+   echo -e "*  28) Sub nmap menu for pentest                                                                         *"
+   echo -e "*  30) Flsm tool                                                                                         *"
+   echo -e "*  32) Masque convertor                                                                                  *"
+   echo -e "*  34) DIST upgrade (debian 9->10/ ubuntu (non LTS)                                                      *"
+   echo -e "*                                                                                                        *"
+   echo -e "*                                    100) Leave the pgm                                                  *"
+   echo -e "*--------------------------------------------------------------------------------------------------------*"
    read -p "Make your choice between 0-100 : " choix
    case $choix in
          0)
@@ -44,7 +45,7 @@ if [ $siroot = $usercheck ]; then
          apt update && apt upgrade 
          ;;
          8)
-	 ./src/monit-linux-autoremove-purge.sh
+	      ./src/monit-linux-autoremove-purge.sh
          ;;
          10) # sub menu for manager users
          ./src/monit-linux-manage-users-sub-panel.sh
@@ -61,45 +62,47 @@ if [ $siroot = $usercheck ]; then
          18)
          ./src/monit-linux-dpkgpb2.sh
          ;;
-	 20)
-	 ./src/monit-linux-ssh-failed-logs.sh
+	      20)
+	      ./src/monit-linux-ssh-failed-logs.sh
          ;;
          22)
          ./src/monit-linux-info-sys.sh
          ;; 
          24)
-      	 ./src/monit-linux-networking.sh
+      	./src/monit-linux-networking.sh
       	 ;;
          26)
          ./src/monit-linux-hostname.sh
          ;;
-	 28)
+	      28)
          ./src/monit-linux-nmap.sh
-	 ;;
-	 30)
-	 ./src/monit-linux-flsm.sh
-      	 ;;
-      	 32)
-      	 ./src/monit-linux-cidr-convertor.sh
-      	 ;;
-      	 34)
+	      ;;
+	      30)
+	      ./src/monit-linux-flsm.sh
+      	;;
+      	32)
+      	./src/monit-linux-cidr-convertor.sh
+      	;;
+      	34)
          ./src/monit-linux-dist-upgrade.sh
          ;;
-	 36)
-	 ./src/monit-linux-cron-for-noobs.sh
-	 ;;
+	      36)
+	      ./src/monit-linux-cron-for-noobs.sh
+	      ;;
          100)
-	 clear
+	      clear
          echo -e " \e[92m  You have leaved sconfig-linux. See you soon :) \e[0m "
          exec bash 
          # reload bash of root for the alias (you can't directy do source /root/.bashrc) -> FUCK
          break;
          ;;
          99) # mode debug 
-         read -p "Revive the programme ? " rep
+         read -p "Revive the programme ? (O/n)" rep
+         rep=${rep:-O}
          ;;
          *)
-         echo -e " \e[91m - 001 - Unknow operation, please enter a number between 0 and 30 \e[0m"
+         clear
+         echo -e " \e[91m - 001 - Unknow operation, please enter a number between 0 and 100 \e[0m"
          ;;
       esac
       continue 

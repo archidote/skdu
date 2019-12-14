@@ -6,7 +6,6 @@ echo -e "* - Sub menu for manager user credentials - *"
 echo -e "*********************************************"
 while [ x != 1 ] 
 do
-clear
 echo -e ""  
 echo -e "  1) Credentials info about an user "
 echo -e "  2) Add a user"
@@ -84,7 +83,7 @@ case $nmap_rep in
             read
             break
 		else 
-			echo -e "  \e[91m - Error -> unknow user !!!  \e[0m -"
+			echo -e "  \e[91m - Error us001 -> unknow user !!!  \e[0m -"
 			continue
 		fi
 		done
@@ -100,8 +99,9 @@ case $nmap_rep in
 		7)
 		break
 		;;
-		*)      
-		echo "Enter ONLY an option between 1-7"
+		*)
+		clear    
+		echo -e " \e[91m Enter ONLY an option between 1-7 \e[0m"
         ;;
 esac
 continue # on continue la boucle tt quand on quite pas

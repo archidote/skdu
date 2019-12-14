@@ -16,4 +16,6 @@ echo -e "\e[92mAccepted pawword for \e[0m"
 echo -e "" 
 journalctl -u ssh | grep "`date +%b" "%d`" | grep "Accepted password"
 echo -e ""
-
+echo -e "Press enter to continue"
+read
+clear

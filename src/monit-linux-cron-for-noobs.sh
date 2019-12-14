@@ -10,8 +10,9 @@ echo -e " --- Enter the ABSOLUTE PATH of your script | cmd --- "
 read -p "Enter your command  (like : /sbin/reboot | /root/myscript.sh) : " cmd 
 echo -e "$min $hour   $dofmonth $month $dofweek   $user    $cmd " >> /etc/crontab
 systemctl restart cron
-echo -e "cron has been restarted with systemctl restart cron : Be aware that a wrong cron job can damaged your system"
-echo -e "note that the modification have been written into /etc/crontab (file)" 
+echo ""
+echo -e " \e[91m Cron daemon has been restarted with systemctl restart cron : Be aware that a wrong cron job can damaged your system \e[0m "
+echo -e "\e[91m NOTE : \e[0m The modification have been written into /etc/crontab (file)" 
 echo -e "Press enter to continue "
 read
 clear
