@@ -44,8 +44,9 @@ case $nmap_rep in
         ;;
 	4)
 		read -p "Enter your the target's IP (like : 192.168.0.1) : " networkIP
+		read -p "Enter the time (in seconds ex : 3600 for 1H : " time 
 		echo -e "If you want to follow the advancement of the current process, press ENTER "
-		nmap --script=ssh-brute.nse $networkIP
+		nmap --script=ssh-brute.nse --script-args unpwdb.timelimit=$time $networkIP
 		# nmap -p 22 --script ssh-brute --script-args userdb=usernames.lst,passdb=passwords.lst 192.168.40.199
 		echo -e  " Press enter to continue "
 		read
