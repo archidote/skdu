@@ -6,15 +6,15 @@ facilitate the debian / ubuntu ... administration / monitoring. Enjoy :)
 
 on your linux server (DEBIAN Family), run the following commands : 
 
-``` 
-
+```
 apt install git
 git clone https://github.com/brlndtech/skdu
 chmod 700 -R skdu
 cd skdu 
 ./skdu
-
 ``` 
+
+or check this link : https://brlnd-tech.eu/skdu/
 
 **WARNING** : You need to be root for executing sconfig-linux
 
