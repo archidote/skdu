@@ -13,7 +13,8 @@ echo -e "  3) Del an user "
 echo -e "  4) Change password of an user"
 echo -e "  5) Add a alias to a bashrc user"
 echo -e "  6) List all the users "
-echo -e "  7) Leave this sub-menu"
+echo -e "  7) Lock an account (with a special date)"
+echo -e "  8) Leave this sub-menu"
 read -p "Select an option : " nmap_rep
 case $nmap_rep in
         1)
@@ -97,11 +98,22 @@ case $nmap_rep in
 		read
 		;;
 		7)
+		read -p "Enter the name of an user for lock his account : " name
+		read -p "Enter the day (1) : " day
+		read -p "Enter the month (12) : " month 
+		read -p "Enter the year (2019) : " year
+		echo ""  
+		chage -E $year-$month-$day $name
+		echo "" 
+		echo "Press enter to continue"
+		read
+		;;
+		8)
 		break
 		;;
 		*)
 		clear    
-		echo -e " \e[91m Enter ONLY an option between 1-7 \e[0m"
+		echo -e " \e[91m Enter ONLY an option between 1-8 \e[0m"
         ;;
 esac
 continue # on continue la boucle tt quand on quite pas
