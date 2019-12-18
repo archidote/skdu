@@ -7,7 +7,7 @@ read -p "Start skdu ? (O/n) : " rep
 rep=${rep:-O}
 while [ $rep == "O" ] || [ $rep == "o" ]
 do
-# Déclaration des variables global : 
+# Déclaration des variables globales : 
 siroot=`whoami` # stock le resultat de la commande whoami dans usercheck
 usercheck="root"
 choix=99
