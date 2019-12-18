@@ -2,7 +2,7 @@
 SKDU project has been create to 
 facilitate the debian / ubuntu ... administration / monitoring. Enjoy :) 
 
-## Installation
+## :pushpin: Installation
 
 on your linux server (DEBIAN Family), run the following commands : 
 
@@ -19,11 +19,11 @@ or check this link : https://brlnd-tech.eu/skdu/
 **WARNING** : You need to be root for executing sconfig-linux
 
 
-## Features & tools 
+## :point_right: Features & tools 
 
 Coming soon !
 
-## Issues 
+## :question: :speech_balloon:Issues 
 
 1 -  Skdu is available only for debian family. **Readhat family is not fully compatible.** 
 
