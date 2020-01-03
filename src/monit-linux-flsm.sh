@@ -40,7 +40,7 @@ do
     let " exposant = $cidr - 8  "
     let " res = 2 ** exposant "
     let " pas = 256 / $res "
-    let " dernier = pas - 1"
+    let " dernier = $pas - 1"
     let " netmask = 256 - $pas "
     let " wildcard = $pas - 1 "
     echo
@@ -82,7 +82,7 @@ do
     let " exposant = $cidr - 16  "
     let " res = 2 ** exposant "
     let " pas = 256 / $res "
-    let " dernier = pas - 1"
+    let " dernier = $pas - 1"
     let " netmask = 256 - $pas "
     let " wildcard = $pas - 1 "
     echo
@@ -125,7 +125,7 @@ do
     let " exposant = $cidr - 24  "
     let " res = 2 ** exposant "
     let " pas = 256 / $res "
-    let " dernier = pas - 1"
+    let " dernier = $pas - 1"
     let " netmask = 256 - $pas "
     let " wildcard = $pas - 1 "
     echo
