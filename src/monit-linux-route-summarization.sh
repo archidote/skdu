@@ -10,7 +10,7 @@ function log2 {
 }
 while [ $rep = 'O' ] || [ $rep = 'o' ]
 do
-	clear
+  clear
   read -p "Entrer une @ ipv4 (addr general) ex 192.168.1.0 : " ipv4
   read -p "Entrer votre masque de base (CIDR) : " cidr
   if [ $cidr -ge 8 ] && [ $cidr -le 16 ]; then 
@@ -71,7 +71,7 @@ do
       let " wildcard = $pas - 1 "
       echo -e "-> /$newmaskCidr en décimal pointé = 255.255.$netmaskDecimal.0 \n-> Wildcard mask = 0.0.$wildcard.255"
       read -p "Saisir de nouveau ? (O/N) : " rep
-		else
+	  else
       read -p "L'ordre de grandeur n'est pas respécté (>256) ! `echo $'\n->'` Saisir de nouveau ? (O/N) : " rep
     fi
   elif [ $cidr -gt 24 ] && [ $cidr -lt 32 ]; then
@@ -102,7 +102,7 @@ do
       let " netmask = 256 - $pas "
       let " wildcard = $pas - 1 "
       echo -e "-> /$newmaskCidr en décimal pointé = 255.255.255.$netmask \n-> Wildcard mask = 0.0.0.$wildcard"
-		  read -p "Saisir de nouveau ? (O/N): " rep
+      read -p "Saisir de nouveau ? (O/N): " rep
 		else 
       read -p "L'ordre de grandeur n'est pas respécté (>256) ! `echo $'\n->'` Saisir de nouveau ? (O/N) : " rep
     fi
@@ -112,3 +112,4 @@ do
   fi
 done
 echo "Bye bye"
+clear
