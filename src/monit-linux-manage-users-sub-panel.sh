@@ -67,7 +67,7 @@ case $nmap_rep in
 			chmod 644 /root/.bashrc
 			source /root/.bashrc
 			# WARNING source /root/.bashrc is not enought to reload the root shell, so in the main program, I have had (at the end) exec bash.
-			# exec bash reload completly the shell of root (and .bashrc), so the alias will work succefully 
+			# exec bash reload completly the root's shell (and .bashrc), so the alias will work succefully 
 			echo -e "The alias $alias has been add to your .bashrc for the $user user (permanently) !"
 			echo -e "Press enter to continue"
         	read

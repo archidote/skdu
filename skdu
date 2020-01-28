@@ -25,7 +25,7 @@ if [ $siroot = $usercheck ]; then
    echo -e "*  26) Change your hostname                 38) Route summarization tool                        *"
    echo -e "*  28) Sub nmap menu for pentest                                                                *"
    echo -e "*  30) Flsm tool                                                                                *"
-   echo -e "*  32) Masque convertor                                                                         *"
+   echo -e "*  32) CIDR convertor                                                                           *"
    echo -e "*  34) DIST upgrade (debian9->10/ubuntu (non LTS)                                               *"
    echo -e "*                                                                                               *"
    echo -e "*                                    100) Leave the pgm                                         *"
@@ -94,7 +94,7 @@ if [ $siroot = $usercheck ]; then
          ;;
          100)
 	 clear
-         echo -e " \e[92m  You have leaved sconfig-linux. See you soon :) \e[0m "
+         echo -e " \e[92m  You have leaved skdu. See you soon :) \e[0m "
          exec bash 
          # reload bash of root for the alias (you can't directy do source /root/.bashrc) -> FUCK
          break;
@@ -110,7 +110,7 @@ if [ $siroot = $usercheck ]; then
       esac
       continue 
 else 
-   echo -e " \e[91m - ||| Unable to execute sconfig-linux in these conditions : please follow the README.md, to solve the problem ||| - \e[0m";
+   echo -e " \e[91m - ||| Unable to execute skdu in these conditions : please follow the README.md, to solve the problem ||| - \e[0m";
    exit; 
 fi
 done # end of the boucle 
