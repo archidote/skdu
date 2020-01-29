@@ -14,6 +14,8 @@ cd skdu
 ./skdu
 ``` 
 
+note : if you run skdu for the first time, run FIRSTLY the option "0" for install all the dependencies, then you can enjoy the program as you want 
+
 or check this link : https://brlnd-tech.eu/skdu/
 
 **WARNING** : You need to be root for executing sconfig-linux
