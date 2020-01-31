@@ -34,64 +34,64 @@ if [ $siroot = $usercheck ]; then
    read -p "Make your choice between 0-100 : " choix
    case $choix in
          0)
-         ./src/monit-linux-verification-paquets.sh
+         ./src/skdu-verification-paquets.sh
          ;;
          2)
-         ./src/monit-linux-date.sh
+         ./src/skdu-date.sh
          ;;
          4) 
-         ./src/monit-linux-meteo.sh
+         ./src/skdu-meteo.sh
          ;;
          6)
          apt update && apt upgrade 
          ;;
          8)
-	 ./src/monit-linux-autoremove-purge.sh
+	 ./src/skdu-autoremove-purge.sh
          ;;
          10) # sub menu for manager users
-         ./src/monit-linux-manage-users-sub-panel.sh
+         ./src/skdu-manage-users-sub-menu.sh
          ;;
          12) 
-         ./src/monit-linux-activities.sh
+         ./src/skdu-activities.sh
          ;;
          14)
-         ./src/monit-linux-backup.sh
+         ./src/skdu-backup.sh
          ;;
          16)
-         ./src/monit-linux-dpkgpb1.sh
+         ./src/skdu-dpkgpb1.sh
          ;;
          18)
-         ./src/monit-linux-dpkgpb2.sh
+         ./src/skdu-dpkgpb2.sh
          ;;
 	 20)
-	 ./src/monit-linux-ssh-failed-logs.sh
+	 ./src/skdu-ssh-failed-logs.sh
          ;;
          22)
-         ./src/monit-linux-info-sys.sh
+         ./src/skdu-info-sys.sh
          ;; 
          24)
-      	 ./src/monit-linux-networking.sh
+      	 ./src/skdu-networking.sh
       	 ;;
          26)
-         ./src/monit-linux-hostname.sh
+         ./src/skdu-hostname.sh
          ;;
 	 28)
-         ./src/monit-linux-nmap.sh
+         ./src/skdu-nmap-sub-menu.sh
 	 ;;
 	 30)
-	 ./src/monit-linux-flsm.sh
+	 ./src/skdu-flsm.sh
       	 ;;
       	 32)
-      	 ./src/monit-linux-cidr-convertor.sh
+      	 ./src/skdu-cidr-convertor.sh
       	 ;;
       	 34)
-         ./src/monit-linux-dist-upgrade.sh
+         ./src/skdu-dist-upgrade.sh
          ;;
 	 36)
-	 ./src/monit-linux-cron-for-noobs.sh
+	 ./src/skdu-cron-for-noobs.sh
 	 ;;
          38)
-         ./src/monit-linux-route-summarization.sh
+         ./src/skdu-route-summarization.sh
          ;;
          100)
 	 clear
