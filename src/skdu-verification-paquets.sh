@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-read -p "Do you want to install  htop / curl / sudo / nmap / net-tools ? (Allow the programme to function effectively) : (O/n)" rep1
+read -p "Do you want to install  htop / curl / sudo / nmap / net-tools ? (Allow the programme to function effectively) : (o/N)" rep1
 rep1=${rep1:-O}
     if [ $rep1 == "O" ] || [ $rep1 == "o" ]; then
        apt-get install curl htop sudo nmap net-tools zip unzip

@@ -23,7 +23,7 @@ or check this link : https://brlnd-tech.eu/skdu/
 
 ## :point_right: Features & tools 
 
-Coming soon !
+the description is coming soon !
 
 ## :question: :speech_balloon:Issues 
 
@@ -32,6 +32,7 @@ Coming soon !
 
 ### Errors Code 
 
+If you detect an error in the program please open an github issue,
 Coming soon !
 
 #### <center>Brlndtech &copy; 2019-2020</center>
