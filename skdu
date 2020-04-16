@@ -1,8 +1,8 @@
 #!/bin/bash
 clear
-echo "------------------------------------------------------------------"
-echo "|          skdu -  Brlndtech 2019 © AIO management Script         |";  
-echo "------------------------------------------------------------------";
+echo "-----------------------------------------------------------------"
+echo "//     SKDU - Brlndtech 2019-`date +%Y` © AIO management scripts     //";  
+echo "-----------------------------------------------------------------";
 read -p "Start skdu ? (O/n) : " rep
 rep=${rep:-O}
 clear
@@ -22,12 +22,12 @@ if [ $siroot = $usercheck ]; then
    echo -e "* 8)  apt autoremove / purge   20) SSH logs for today ? : `date +%d-%m-%y`             *"
    echo -e "* 10) Manage Users sub-menu    22) Info about your sys                         *"
    echo -e "*                                                                              *"
-   echo -e "* 24) Change your server IP    36) Cron for noobs tool                         *"
-   echo -e "* 26) Change your hostname     38) Route summarization tool                    *"
+   echo -e "* 24) Change your server IP    34) Cron for noobs tool                         *"
+   echo -e "* 26) Change your hostname     36) Route summarization tool                    *"
    echo -e "* 28) Nmap sub-menu pentesting                                                 *"
    echo -e "* 30) Flsm tool                                                                *"
    echo -e "* 32) CIDR convertor                                                           *"
-   echo -e "* 34) DIST upgrade                                                             *"
+   echo -e "*                                                                              *"
    echo -e "*                                                                              *"
    echo -e "*                              100) Leave skdu                                 *"
    echo -e "*------------------------------------------------------------------------------*"
@@ -84,13 +84,10 @@ if [ $siroot = $usercheck ]; then
       	 32)
       	 ./src/skdu-cidr-convertor.sh
       	 ;;
-      	 34)
-         ./src/skdu-dist-upgrade.sh
-         ;;
-	 36)
+	 34)
 	 ./src/skdu-cron-for-noobs.sh
 	 ;;
-         38)
+         36)
          ./src/skdu-route-summarization.sh
          ;;
          100)
@@ -114,4 +111,5 @@ else
    echo -e " \e[91m - ||| Unable to execute skdu in these conditions : please follow the README.md, to solve the problem ||| - \e[0m";
    exit; 
 fi
-done # end of the boucle 
+done # end of the boucle
+echo "by :)"

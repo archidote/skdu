@@ -17,7 +17,7 @@ cp /etc/network/interfaces /etc/network/backup/interfaces_backup_`date +%Y%m%d%H
 # Retrieves the NIC information
 nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2- | head -1`
 # Ask for input on network configuration
-/usr/sbin/ifdown $nic
+# /usr/sbin/ifdown $nic
 read -p "Enter the static IP (ex : 192.168.0.10) : " staticip
 read -p "Entrer the netmask (ex : 255.255.255.0) : " netmask
 read -p "Enter the IP of your gateway : " gateway
@@ -44,10 +44,8 @@ search localdomain
 nameserver $dns1
 nameserver $dns2
 EOF
-#systemctl restart networking
-/usr/sbin/ifup $nic
-echo -e "\e[92m Your ip address has been changed ! (/etc/network/interfaces) \e[0m"
-echo -e "\e[92m Reboot your computer to apply definitly the modification \e[0m"
+echo -e "\e[92m Your ip address has been changed ! \e[0m (/etc/network/interfaces)"
+echo -e "\e[92m Please, Reboot your computer / server \e[0m to apply definitly the modification"
 echo -e "Press enter to continue"
 read
 clear

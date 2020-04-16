@@ -13,7 +13,7 @@ echo -e "  2) Scan entire TCP port ranges (1-65535)  "
 echo -e "  3) Scan entire UDP port ranges : "
 echo -e "  4) Brute force SSH attaque (only port on 22)"
 echo -e "  5) Check potential vulnerabilities of your system"
-echo -e "  6) Slowloris pentest against a target"
+echo -e "  6) Slowloris DDOS test against a target"
 echo -e "  7) Leave nmap sub-menu"
 echo -e ""
 read -p "Select an option : " nmap_rep
@@ -76,5 +76,6 @@ case $nmap_rep in
 esac
 continue 
 done
+clear
 # read -p "Enter the name of the target : " target
 # nmap -O $target

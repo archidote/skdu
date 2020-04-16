@@ -47,10 +47,10 @@ do
       let " netmaskDecimal = 256 - $pas "
       let " wildcard = $pas - 1 "
       echo -e "-> /$newmaskCidr in dotted decimal = 255.$netmaskDecimal.0.0 \n-> Wildcard mask = 0.$wildcard.255.255"
-      read -p "One more network ? (o/N) : " rep
+      read -p "One more network ? (O/n) : " rep
       rep=${rep:-O}
     else
-      read -p "The order of magnitude is not respected (> 256)!`echo $'\n->'` Try again ? (o/N): " rep
+      read -p "The order of magnitude is not respected (> 256)!`echo $'\n->'` Try again ? (O/n): " rep
       rep=${rep:-O}
     fi
   elif [ $cidr -gt 16 ] && [ $cidr -le 24 ]; then 
@@ -86,10 +86,10 @@ do
       let " netmaskDecimal = 256 - $pas "
       let " wildcard = $pas - 1 "
       echo -e "-> /$newmaskCidr in dotted decimal = 255.255.$netmaskDecimal.0 \n-> Wildcard mask = 0.0.$wildcard.255"
-      read -p "One more network ? (o/N) : " rep
+      read -p "One more network ? (O/n) : " rep
       rep=${rep:-O}
     else
-      read -p "The order of magnitude is not respected (> 256)!`echo $'\n->'` Try again ? (o/N) : " rep
+      read -p "The order of magnitude is not respected (> 256)!`echo $'\n->'` Try again ? (O/n) : " rep
       rep=${rep:-O}
     fi
   elif [ $cidr -gt 24 ] && [ $cidr -lt 32 ]; then
@@ -126,14 +126,15 @@ do
       let " netmask = 256 - $pas "
       let " wildcard = $pas - 1 "
       echo -e "-> /$newmaskCidr in dotted decimal = 255.255.255.$netmask \n-> Wildcard mask = 0.0.0.$wildcard"
-      read -p "One more network ? (o/N): " rep
+      read -p "One more network ? (O/n): " rep
       rep=${rep:-O}
     else 
-      read -p "The order of magnitude is not respected (> 256)!`echo $'\n->'` Try again ? (o/N) : " rep
+      read -p "The order of magnitude is not respected (> 256)!`echo $'\n->'` Try again ? (O/n) : " rep
+      rep=${rep:-O}
     fi
   else
     echo " CIDR need to be > /8 and < /31" 
-    read -p "Try again ? (o/N) : " rep
+    read -p "Try again ? (O/n) : " rep
     rep=${rep:-O}
   fi
 done

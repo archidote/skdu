@@ -117,6 +117,7 @@ case $nmap_rep in
         ;;
 esac
 continue # on continue la boucle tt quand on quite pas
-done # fin de la boucle 
+done # fin de la boucle
+clear
 # read -p "Enter the name of the target : " target
 # nmap -O $target
