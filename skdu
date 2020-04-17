@@ -17,8 +17,8 @@ if [ $siroot = $usercheck ]; then
    echo -e "*------------------------------------------------------------------------------*"
    echo -e "* 0)  !Startup                 12) Follow the system activities (user/process) *"
    echo -e "* 2)  Welcome message          14) Backup a folder fast folder/.tar.gz/.zip    *"
-   echo -e "* 4)  Display the weather      16) Solve the dpkg error after apt update       *"
-   echo -e "* 6)  apt update / apt upgrade 18) Solve the dpkg error (2)                    *"
+   echo -e "* 4)  Display the weather      16) Solve Apt / Dpkg Errors menu                *"
+   echo -e "* 6)  apt update / apt upgrade 18) !! Not available at this moment !!          *"
    echo -e "* 8)  apt autoremove / purge   20) SSH logs for today ? : `date +%d-%m-%y`             *"
    echo -e "* 10) Manage Users sub-menu    22) Info about your sys                         *"
    echo -e "*                                                                              *"
@@ -58,10 +58,11 @@ if [ $siroot = $usercheck ]; then
          ./src/skdu-backup.sh
          ;;
          16)
-         ./src/skdu-dpkgpb1.sh
+         ./src/skdu-dpkg-apt-errors-sub-menu.sh
          ;;
          18)
-         ./src/skdu-dpkgpb2.sh
+         clear
+         #./src/skdu-dpkgpb2.sh
          ;;
 	 20)
 	 ./src/skdu-ssh-failed-logs.sh
