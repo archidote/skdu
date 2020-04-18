@@ -11,10 +11,9 @@ echo -e ""
 echo -e "  1) Scan network for connected device(s) "
 echo -e "  2) Scan entire TCP port ranges (1-65535)  "
 echo -e "  3) Scan entire UDP port ranges : "
-echo -e "  4) Brute force SSH attaque (only port on 22)"
-echo -e "  5) Check potential vulnerabilities of your system"
-echo -e "  6) Slowloris DDOS test against a target"
-echo -e "  7) Leave nmap sub-menu"
+echo -e "  4) Check potential vulnerabilities of your system"
+echo -e "  5) Slowloris DDOS test against a target"
+echo -e "  20) Leave nmap sub-menu"
 echo -e ""
 read -p "Select an option : " nmap_rep
 case $nmap_rep in
@@ -44,28 +43,19 @@ case $nmap_rep in
         ;;
 	4)
 		read -p "Enter your the target's IP (like : 192.168.0.1) : " networkIP
-		read -p "Enter the time (in seconds ex : 3600 for 1H : " time 
-		echo -e "If you want to follow the advancement of the current process, press ENTER "
-		nmap --script=ssh-brute.nse --script-args unpwdb.timelimit=$time $networkIP
-		# nmap -p 22 --script ssh-brute --script-args userdb=usernames.lst,passdb=passwords.lst 192.168.40.199
-		echo -e  " Press enter to continue "
-		read
-		;;
-	5)
-		read -p "Enter your the target's IP (like : 192.168.0.1) : " networkIP
 		echo -e "If you want to follow the advancement of the current process, press ENTER "
 		nmap -v --script vuln $networkIP
 		echo -e  " Press enter to continue "
         read
 		;;
-        6)
+        5)
 		read -p "Enter your the target's IP (like : 192.168.0.1) : " networkIP
         echo -e "If you want to follow the advancement of the current process, press ENTER "
         nmap -p 80,443 --max-parallelism 750 -Pn --script http-slowloris $networkIP
         echo -e  " Press enter to continue "
         read
 		;;
-		7)
+		20)
 		clear
 		break
 		;;
