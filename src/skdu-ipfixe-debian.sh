@@ -44,8 +44,8 @@ search localdomain
 nameserver $dns1
 nameserver $dns2
 EOF
+systemctl restart networking
 echo -e "\e[92m Your ip address has been changed ! \e[0m (/etc/network/interfaces)"
-echo -e "\e[92m Please, Reboot your computer / server \e[0m to apply definitly the modification"
 echo -e "Press enter to continue"
 read
 clear

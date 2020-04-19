@@ -71,7 +71,7 @@ if [ $siroot = $usercheck ]; then
          ./src/skdu-info-sys.sh
          ;; 
          24)
-      	 ./src/skdu-networking.sh
+      	 ./src/skdu-detect-os-for-network.sh
       	 ;;
          26)
          ./src/skdu-hostname.sh
