@@ -114,3 +114,5 @@ else
 fi
 done # end of the boucle
 echo "by :)"
+sleep 1
+clear

@@ -18,6 +18,25 @@ cp /etc/network/interfaces /etc/network/backup/interfaces_backup_`date +%Y%m%d%H
 nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2- | head -1`
 # Ask for input on network configuration
 # /usr/sbin/ifdown $nic
+read -p "Configure the network with DHCP ? (O/n) : " dhcp
+dhcp=${rep:-O}
+if [ $dhcp = 'O' ] || [ $dhcp = 'o' ]; then
+cat > /etc/network/interfaces << EOF
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug $nic
+iface $nic inet dhcp
+EOF
+
+else 
 read -p "Enter the static IP (ex : 192.168.0.10) : " staticip
 read -p "Entrer the netmask (ex : 255.255.255.0) : " netmask
 read -p "Enter the IP of your gateway : " gateway
@@ -44,6 +63,7 @@ search localdomain
 nameserver $dns1
 nameserver $dns2
 EOF
+fi
 systemctl restart networking
 echo -e "\e[92m Your ip address has been changed ! \e[0m (/etc/network/interfaces)"
 echo -e "Press enter to continue"
