@@ -19,7 +19,7 @@ nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2- 
 # Ask for input on network configuration
 # /usr/sbin/ifdown $nic
 read -p "Configure the network with DHCP ? (O/n) : " dhcp
-dhcp=${rep:-O}
+dhcp=${dhcp:-O}
 if [ $dhcp = 'O' ] || [ $dhcp = 'o' ]; then
 cat > /etc/network/interfaces << EOF
 # This file describes the network interfaces available on your system

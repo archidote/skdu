@@ -3,7 +3,7 @@ clear
 echo -e "Performing OS Detection (...)"
 if [ "`cat /etc/issue | cut -c1-6`" == "Ubuntu" ] || [ "`cat /etc/issue | cut -c1-13`" == "elementary OS" ]; then
     echo -e "\e[92m Distribution : ubuntu (like) \e[0m "
-    ./src/skdu-ipfixe-netplan.sh # on précise le dossier src du projet de base
+    ./src/skdu-ip-netplan.sh # on précise le dossier src du projet de base
 elif [ "`cat /etc/issue | cut -c1-6`" == "Debian" ]; then
     echo -e "\e[92m Distribution : Debian \e[0m "
     ./src/skdu-ip-debian.sh # on précise le dossier src du projet de base
