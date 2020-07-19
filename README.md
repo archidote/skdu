@@ -2,9 +2,9 @@
 SKDU project has been create to 
 facilitate the debian / ubuntu ... administration / monitoring. Enjoy :) 
 
-## :pushpin: Installation
+## :pushpin: Installation (1/2)
 
-on your linux server (DEBIAN Family), run the following commands : 
+on your linux server (DEBIAN Family), run the following commands <b>as root </b>: 
 
 ```
 apt install git
@@ -13,27 +13,34 @@ chmod 700 -R skdu
 cd skdu 
 ./skdu
 ``` 
+Demo installation : https://brlnd-tech.eu/skdu/
 
-note : if you run skdu for the first time, run FIRSTLY the option "0" for install all the dependencies, then you can enjoy the program as you want 
+## :pushpin: Installation (2/2)
 
-or check this link : https://brlnd-tech.eu/skdu/
+If you run skdu for the first time, run FIRSTLY the option "0" for install all the dependencies that skdu required. Then, you can enjoy the program as you want 
+
+
 
 **WARNING** : You need to be root for executing sconfig-linux
 
 
-## :point_right: Features & tools 
+## :point_right: Menu
 
-the description is coming soon !
+This is the main menu of skdu, for more info about the sub-tools, start to use it :)
+
+<img src="https://i.imgur.com/Kd9Zr75.png">
+
+
 
 ## :question: :speech_balloon:Issues 
 
-1 -  Skdu is available only for debian family. **Readhat family is not fully compatible.** 
+1 -  Skdu is available only for debian family. 
+**Readhat family is not fully compatible ! ** 
 
 
 ### Errors Code 
 
-If you detect an error in the program please open an github issue,
-Coming soon !
+If you detect errors or bugs please open an github issue,
 
-#### <center>Brlndtech &copy; 2019-2020</center>
+#### <center>Brlndtech</center>
 
