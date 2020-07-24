@@ -18,7 +18,7 @@ case $answer in
         ;;
         2)
 		./src/skdu-apt-dpkgpb2.sh
-                ;;
+        ;;
 		3)
 		clear
 		break

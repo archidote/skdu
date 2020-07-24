@@ -2,9 +2,9 @@
 clear
 x=0
 echo -e " \e[91m REMEMBER \e[0m , The scanning of ports can be considered illegal. It should not be used by an administrator on his own network to check his security."
-echo -e "**************************************************"
-echo -e "| - Sub menu for do some pentest into a network - |"
-echo -e "**************************************************"
+echo -e "*************************"
+echo -e "| - Pentest sub menu  - |"
+echo -e "*************************"
 while [ x != 1 ] 
 do
 echo -e ""
@@ -12,7 +12,7 @@ echo -e "  1) Scan network for connected device(s) "
 echo -e "  2) Scan entire TCP port ranges (1-65535)  "
 echo -e "  3) Scan entire UDP port ranges : "
 echo -e "  4) Check potential vulnerabilities of your system"
-echo -e "  5) Slowloris DDOS test against a target"
+echo -e "  5) Slowloris DOS test against a target"
 echo -e "  20) Leave nmap sub-menu"
 echo -e ""
 read -p "Select an option : " nmap_rep
@@ -67,5 +67,3 @@ esac
 continue 
 done
 clear
-# read -p "Enter the name of the target : " target
-# nmap -O $target

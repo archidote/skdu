@@ -23,6 +23,9 @@ case $nmap_rep in
 			cp -r $target /backup/$folder
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
 			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folder \e[0m";
+			echo
+			echo -e "\e[92m ls of the /backupfolder \e[0m-" 
+			ls -lt /backup 
 		else
 			clear
 			mkdir /backup
@@ -34,6 +37,9 @@ case $nmap_rep in
 			cp -r $target /backup/$folder
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
 			echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folder \e[0m";
+			echo
+			echo -e "\e[92m ls of the /backupfolder \e[0m-" 
+			ls -lt /backup 
 		fi
         ;;
         2)
@@ -48,6 +54,9 @@ case $nmap_rep in
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
 			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargz.tar.tgz \e[0m";
 			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargz.tar.tgz"
+			echo
+			echo -e "\e[92m ls of the /backupfolder \e[0m-" 
+			ls -lt /backup 
 		else
 			clear
 			mkdir /backup
@@ -60,6 +69,9 @@ case $nmap_rep in
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
 			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargz.tar.tgz \e[0m";
 			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargz.tar.tgz"
+			echo
+			echo -e "\e[92m ls of the /backupfolder \e[0m-" 
+			ls -lt /backup 
 		fi
 		;;
 		3)
@@ -74,6 +86,9 @@ case $nmap_rep in
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
 			echo -e "\e[92m-> Saved folder $target into a .zip file \nLocation : /backup/$folder.zip \e[0m";
 			echo -e "For decompress the .zip archive go into /backup and : unzip $folder.zip "
+			echo
+			echo -e "\e[92m ls of the /backupfolder \e[0m-" 
+			ls -lt /backup 
 		else
 			clear
 			mkdir /backup
@@ -86,6 +101,9 @@ case $nmap_rep in
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
 			echo -e "\e[92m-> Saved folder $target into a .zip file \nLocation : /backup/$folder.zip \e[0m";
 			echo -e "For decompress the .zip archive go into /backup and : unzip $folder.zip "
+			echo
+			echo -e "\e[92m ls of the /backupfolder \e[0m-" 
+			ls -lt /backup 
 		fi
 		;;
 		4)

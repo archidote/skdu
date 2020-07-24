@@ -5,6 +5,9 @@ hostname=`hostname -s`
 dnsdname=`hostname -d`
 os=`hostnamectl | grep Operating | cut -c21-`
 kernel=`hostnamectl | grep Kernel | cut -c21-`
+upt=`uptime -p`
+cpuType=`lscpu | grep "Model name:" | cut -c34-`
+coreNumber=`lscpu | grep "CPU(s):" | cut -c34- | head -1` 
 osLike=`cat /etc/os-release | grep LIKE | cut -c9-`
 dns1=`cat /etc/resolv.conf | grep -m 1 'nameserver' | cut -c12-`
 dns2=`cat /etc/resolv.conf | tail -1 | cut -c12-`
@@ -14,6 +17,9 @@ echo -e "\e[92m                      Info about you system                \e[0m"
 echo -e "######################################################################"
 echo -e " OS              : $os                                              "
 echo -e " Kernel          : $kernel                                          "
+echo -e " CPU type        : $cpuType                                         "
+echo -e " CPU(s)          : $coreNumber                                      "
+echo -e " Uptime          : $upt                                             "
 echo -e " Hostname        : $hostname                                        "
 echo -e " DNS Domain name : $dnsdname                                        "
 echo -e " Main ip address : $ip                                              "

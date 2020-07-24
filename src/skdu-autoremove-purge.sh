@@ -5,7 +5,7 @@ echo -e "cleaning up  ... "
 echo -e "\e[0m"
 apt-get autoremove
 apt-get purge
-echo -e " \e[92m the OS has been cleaned, reboot to be sure \e[0m "
+echo -e " \e[92m the OS has been cleaned. \e[0m "
 echo -e "Press enter to continue"
 read
 clear

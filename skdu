@@ -1,7 +1,21 @@
 #!/bin/bash
+#!/bin/bash
+fdate() {
+day=`date +%w`
+dayName=`date +%A`
+  if [ day == "1" ]; then # change to monday for english speackers
+     echo -e "\e[96m Let's take a coffe :) We are monday. `date +%d/%m/%Y` \e[0m";
+  elif [ day == "5" ]; then # change to friday for english speackers
+     echo -e "\e[96m Few hours left before the week-end. We are friday. `date +%d/%m/%Y` \e[0m ";
+  else 
+     echo -e "\e[96m Have a good day :) we are $dayName `date +%d/%m/%Y` ! \e[0m";
+  fi
+}
+clear
 clear
 echo "-----------------------------------------------------------------"
-echo "//     SKDU - Brlndtech 2019-`date +%Y` © AIO management scripts     //";  
+echo "//     SKDU - Brlndtech 2019-`date +%Y` © AIO management scripts     //";
+echo " $(fdate)                                                            "   
 echo "-----------------------------------------------------------------";
 read -p "Start skdu ? (O/n) : " rep
 rep=${rep:-O}
