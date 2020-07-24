@@ -7,10 +7,10 @@ echo -e "*********************************************"
 while [ x != 1 ] 
 do
 echo -e ""  
-echo -e "  1) Credentials info about an user "
+echo -e "  1) Credentials info about a user "
 echo -e "  2) Add a user"
-echo -e "  3) Del an user "
-echo -e "  4) Change password of an user"
+echo -e "  3) Del a user "
+echo -e "  4) Change password of a user"
 echo -e "  5) Add a alias to a bashrc user"
 echo -e "  6) List all the users "
 echo -e "  7) Lock an account (with a special date)"
@@ -41,7 +41,7 @@ case $nmap_rep in
 		/usr/sbin/deluser $user
 		rm -r /home/$user
 		echo -e " \e[92m The user $user has been removed, as well as his personal folder /home/$user. \e[0m"
-        echo -e "Press enter to continue"
+                echo -e "Press enter to continue"
 		read 
 		clear 
         ;;
@@ -98,7 +98,7 @@ case $nmap_rep in
 		read
 		;;
 		7)
-		read -p "Enter the name of an user for lock his account : " name
+		read -p "Enter the name of a user for lock his account : " name
 		read -p "Enter the day (1) : " day
 		read -p "Enter the month (12) : " month 
 		read -p "Enter the year (2019) : " year
@@ -119,5 +119,3 @@ esac
 continue # on continue la boucle tt quand on quite pas
 done # fin de la boucle
 clear
-# read -p "Enter the name of the target : " target
-# nmap -O $target
