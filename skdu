@@ -48,65 +48,65 @@ if [ $siroot = $usercheck ]; then
    read -p "Make your choice between 0-100 : " choix
    case $choix in
          0)
-         ./src/skdu-verification-paquets.sh
+         /etc/skdu/src/skdu-verification-paquets.sh
          ;;
          2)
-         ./src/skdu-date.sh
+         /etc/skdu/src/skdu-date.sh
          ;;
          4) 
-         ./src/skdu-meteo.sh
+         /etc/skdu/src/skdu-meteo.sh
          ;;
          6)
          apt update && apt upgrade 
          ;;
          8)
-	 ./src/skdu-autoremove-purge.sh
+	      /etc/skdu/src/skdu-autoremove-purge.sh
          ;;
          10) # sub menu for manager users
-         ./src/skdu-manage-users-sub-menu.sh
+         /etc/skdu/src/skdu-manage-users-sub-menu.sh
          ;;
          12) 
-         ./src/skdu-activities.sh
+         /etc/skdu/src/skdu-activities.sh
          ;;
          14)
-         ./src/skdu-backup.sh
+         /etc/skdu/src/skdu-backup.sh
          ;;
          16)
-         ./src/skdu-dpkg-apt-errors-sub-menu.sh
+         /etc/skdu/src/skdu-dpkg-apt-errors-sub-menu.sh
          ;;
          18)
          clear
-         #./src/skdu-dpkgpb2.sh
+         #/etc/skdu/src/skdu-dpkgpb2.sh
          ;;
-	 20)
-	 ./src/skdu-ssh-failed-logs.sh
+	      20)
+	      /etc/skdu/src/skdu-ssh-failed-logs.sh
          ;;
          22)
-         ./src/skdu-info-sys.sh
+         /etc/skdu/src/skdu-info-sys.sh
          ;; 
          24)
-      	 ./src/skdu-detect-os-for-network.sh
+      	 /etc/skdu/src/skdu-detect-os-for-network.sh
       	 ;;
          26)
-         ./src/skdu-hostname.sh
+         /etc/skdu/src/skdu-hostname.sh
          ;;
-	 28)
-         ./src/skdu-nmap-sub-menu.sh
-	 ;;
-	 30)
-	 ./src/skdu-flsm.sh
-      	 ;;
-      	 32)
-      	 ./src/skdu-cidr-convertor.sh
-      	 ;;
-	 34)
-	 ./src/skdu-cron-for-noobs.sh
-	 ;;
+	      28)
+         /etc/skdu/src/skdu-nmap-sub-menu.sh
+	      ;;
+	      30)
+	      /etc/skdu/src/skdu-flsm.sh
+      	;;
+      	32)
+      	/etc/skdu/src/skdu-cidr-convertor.sh
+      	;;
+	      34)
+	      /etc/skdu/src/skdu-cron-for-noobs.sh
+	      ;;
          36)
-         ./src/skdu-route-summarization.sh
+         /etc/skdu/src/skdu-route-summarization.sh
          ;;
          100)
-	 clear
+	      clear
          echo -e " \e[92m  You have leaved skdu. See you soon :) \e[0m "
          exec bash 
          # reload bash of root for the alias (you can't directy do source /root/.bashrc) -> FUCK
