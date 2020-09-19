@@ -36,7 +36,7 @@ if [ $siroot = $usercheck ]; then
    echo -e "* 8)  apt autoremove / purge   20) SSH logs for today ? : `date +%d-%m-%y`             *"
    echo -e "* 10) Manage Users sub-menu    22) Info about your sys                         *"
    echo -e "*                                                                              *"
-   echo -e "* 24) Change your server IP    34) Cron for noobs tool                         *"
+   echo -e "* 24) Change your IP & DNS     34) Cron for noobs tool                         *"
    echo -e "* 26) Change your hostname     36) Route summarization tool                    *"
    echo -e "* 28) Nmap sub-menu pentesting                                                 *"
    echo -e "* 30) Flsm tool                                                                *"

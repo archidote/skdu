@@ -14,10 +14,10 @@ echo -e ""
 read -p "Select an option : " answer
 case $answer in
         1)
-		./src/skdu-apt-dpkgpb1.sh
+		/etc/skdu/src/skdu-apt-dpkgpb1.sh
         ;;
         2)
-		./src/skdu-apt-dpkgpb2.sh
+		/etc/skdu/src/skdu-apt-dpkgpb2.sh
         ;;
 		3)
 		clear
