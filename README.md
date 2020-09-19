@@ -1,8 +1,17 @@
 # SKDU Project Swiss Knife Debian Ubuntu Project 
 SKDU project has been create to 
-facilitate the debian / ubuntu ... administration / monitoring. Enjoy :) 
+facilitate the debian / ubuntu ... administration / monitoring. Enjoy :)
 
-## :pushpin: Installation (1/2)
+## :pushpin: Auto installation (1/2)
+
+run the following command <b> as root </b> 
+
+``` 
+ sudo curl -sL https://raw.githubusercontent.com/brlndtech/skdu/master/install.sh | bash
+``` 
+
+
+## :pushpin: Hand installation (1/2)
 
 on your linux server (DEBIAN Family), run the following commands <b>as root </b>: 
 
@@ -15,13 +24,13 @@ cd skdu
 ``` 
 Demo installation : https://brlnd-tech.eu/skdu/
 
-## :pushpin: Installation (2/2)
+## :pushpin: install linux dependencies (2/2)
 
 If you run skdu for the first time, run FIRSTLY the option "0" for install all the dependencies that skdu required. Then, you can enjoy the program as you want 
 
 
 
-**WARNING** : You need to be root for executing sconfig-linux
+**WARNING** : You need to be root for executing skdu
 
 
 ## :point_right: Menu

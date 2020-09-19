@@ -11,8 +11,8 @@ echo -e "  1) Backup with cp -r a folder "
 echo -e "  2) Create a .tar.gz archive (FROM A FOLDER)"
 echo -e "  3) Create a zip archive (FROM A FOLDER) "
 echo -e "  4) exit "
-read -p "Select an option : " nmap_rep
-case $nmap_rep in
+read -p "Select an option : " backupRep
+case $backupRep in
         1)
 		if [ -d "/backup" ];then
 			clear
@@ -48,14 +48,13 @@ case $nmap_rep in
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
-			nameoftargz="backup-$d"
-			# nameoftargzFinal="$(echo $nameoftargz | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
+			folder="backup-$d"
 			tar czvf /backup/$folder.tar.gz $target
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargz.tar.tgz \e[0m";
-			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargz.tar.tgz"
+			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$folder.tar.tgz \e[0m";
+			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $folder.tar.tgz"
 			echo
-			echo -e "\e[92m ls of the /backupfolder \e[0m-" 
+			echo -e "\e[92m ls of the backupfolder /backup \e[0m-" 
 			ls -lt /backup 
 		else
 			clear
@@ -63,14 +62,13 @@ case $nmap_rep in
 			read -p "Enter the ABSOLUTE PATH : " target  
 			echo -e  "\e[33m Loading ... \e[0m";
 			d=`date +%d-%m-%Y-%H-%M-%S`
-			nameoftargz="backup-$d"
-			# nameoftargzFinal="$(echo $nameoftargz | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
+			folder="backup-$d"
 			tar czvf /backup/$folder.tar.gz $target
 			# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$nameoftargz.tar.tgz \e[0m";
-			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $nameoftargz.tar.tgz"
+			echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$folder.tar.tgz \e[0m";
+			echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $folder.tar.tgz"
 			echo
-			echo -e "\e[92m ls of the /backupfolder \e[0m-" 
+			echo -e "\e[92m ls of the backupfolder /backup \e[0m-" 
 			ls -lt /backup 
 		fi
 		;;
