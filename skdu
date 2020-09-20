@@ -32,7 +32,7 @@ if [ $siroot = $usercheck ]; then
    echo -e "* 0)  !Startup                 12) Follow the system activities (user/process) *"
    echo -e "* 2)  Welcome message          14) Backup a folder fast folder/.tar.gz/.zip    *"
    echo -e "* 4)  Display the weather      16) Solve Apt / Dpkg Errors menu                *"
-   echo -e "* 6)  apt update / apt upgrade 18) !! Not available at this moment !!          *"
+   echo -e "* 6)  apt update / apt upgrade 18) Encrypt / Decrypt File(s)                   *"
    echo -e "* 8)  apt autoremove / purge   20) SSH logs for today ? : `date +%d-%m-%y`             *"
    echo -e "* 10) Manage Users sub-menu    22) Info about your sys                         *"
    echo -e "*                                                                              *"
@@ -76,7 +76,7 @@ if [ $siroot = $usercheck ]; then
          ;;
          18)
          clear
-         #/etc/skdu/src/skdu-dpkgpb2.sh
+         /etc/skdu/src/skdu-encrypted-message.sh
          ;;
 	      20)
 	      /etc/skdu/src/skdu-ssh-failed-logs.sh
