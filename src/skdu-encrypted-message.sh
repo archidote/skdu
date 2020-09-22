@@ -1,24 +1,5 @@
 #!/bin/bash
-#!/bin/bash
-isFileEncryptedExist() {
-    if [ -e /tmp/file.encrypted ]; then
-        echo "The encrypted file has been generated ! "
-        ls /tmp/file.encrypted
-    else
-        echo "\e[91m Error, the encrypted file has not be created for a unknow reason.\e[0m "
-    fi
-}
-isFileDecryptedExist() {
-    if [ -e /tmp/file.decrypted ]; then
-        echo "The decrypted file has been generated ! "
-        ls /tmp/file.decrypted
-    else
-        echo "\e[91m Error, the decrypted file has not be created for a unknow reason.\e[0m "
-    fi   
-}
-sendToEmail () {
-    echo
-}
+source /etc/skdu/Globalfunction.cfg
 clear
 x=0
 echo -e "*********************************************"
@@ -72,9 +53,9 @@ case $answer in
 	read
     ;;
     4)
-    read -p "Enter the absolute path of the file that you want to decrypt, ex (/tmp/file.enc) : " fileE
+    read -p "Enter the absolute path of the file that you want to decrypt, ex (/tmp/file.encrypted) : " fileE
     read -p "Enter the absolute path of your private key, ex (/root/myKey/key.pem) : " pvKey
-    pubKey=${pubKey:-/root/myKey/key.pem} 
+    pvKey=${pvKey:-/root/myKey/key.pem} 
     openssl rsautl -decrypt -inkey $pvKey -in $fileE -out /tmp/file.decrypted
     isFileDecryptedExist
     echo -e "Press enter to continue"
@@ -89,7 +70,9 @@ case $answer in
     nano /tmp/$fileC.clear 
     openssl rsautl -encrypt -inkey $pubKey -pubin -in /tmp/$fileC.clear -out /tmp/file.encrypted
     isFileEncryptedExist
-    # echo "cf the attachment ->" | mail -s "$object" $email -A /tmp/message.encrypted 
+    # echo "cf the attachment ->" | mail -s "$object" $email -A /tmp/message.encrypted
+    echo -e "Press enter to continue"
+	read
     ;;
     10)
 	break

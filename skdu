@@ -16,7 +16,7 @@ usercheck="root"
 choix=99
 # fin des var global 
 if [ $siroot = $usercheck ]; then
-isCommandsExistOrNot
+isCommandsExistOrNot 
    echo -e "*------------------------------------------------------------------------------*"
    echo -e "* 0)  !Startup                 12) Follow the system activities (user/process) *"
    echo -e "* 2)  Not available now !      14) Backup a folder fast folder/.tar.gz/.zip    *"
