@@ -1,6 +1,8 @@
 #!/bin/bash
+source /etc/skdu/Globalfunction.cfg
 clear
 x=0
+isCommandExistOrNot nmap
 echo -e " \e[91m REMEMBER \e[0m , The scanning of ports can be considered illegal. It should not be used by an administrator on his own network to check his security."
 echo -e "*************************"
 echo -e "| - Pentest sub menu  - |"

@@ -1,17 +1,5 @@
 #!/bin/bash
-#!/bin/bash
-fdate() {
-day=`date +%w`
-dayName=`date +%A`
-  if [ day == "1" ]; then # change to monday for english speackers
-     echo -e "\e[96m Let's take a coffe :) We are monday. `date +%d/%m/%Y` \e[0m";
-  elif [ day == "5" ]; then # change to friday for english speackers
-     echo -e "\e[96m Few hours left before the week-end. We are friday. `date +%d/%m/%Y` \e[0m ";
-  else 
-     echo -e "\e[96m Have a good day :) we are $dayName `date +%d/%m/%Y` ! \e[0m";
-  fi
-}
-clear
+source /etc/skdu/Globalfunction.cfg
 clear
 echo "-----------------------------------------------------------------"
 echo "//     SKDU - Brlndtech 2019-`date +%Y` © AIO management scripts     //";
@@ -28,9 +16,10 @@ usercheck="root"
 choix=99
 # fin des var global 
 if [ $siroot = $usercheck ]; then
+isCommandsExistOrNot
    echo -e "*------------------------------------------------------------------------------*"
    echo -e "* 0)  !Startup                 12) Follow the system activities (user/process) *"
-   echo -e "* 2)  Welcome message          14) Backup a folder fast folder/.tar.gz/.zip    *"
+   echo -e "* 2)  Not available now !      14) Backup a folder fast folder/.tar.gz/.zip    *"
    echo -e "* 4)  Display the weather      16) Solve Apt / Dpkg Errors menu                *"
    echo -e "* 6)  apt update / apt upgrade 18) Encrypt / Decrypt File(s)                   *"
    echo -e "* 8)  apt autoremove / purge   20) SSH logs for today ? : `date +%d-%m-%y`             *"

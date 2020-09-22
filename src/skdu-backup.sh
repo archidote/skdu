@@ -1,46 +1,5 @@
 #!/bin/bash
-backupFolder() {			
-	clear
-	read -p "Enter the ABSOLUTE PATH (ex : /var/log/): " target  
-	d=`date +%d-%m-%Y-%H-%M-%S`
-	folder="backup-$d"
-	cp -r $target /backup/$folder
-	# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-	echo -e "\e[92m-> Saved folder ($target) \nLocation : /backup/$folder \e[0m";
-	echo
-	echo -e "\e[92m ls of backupfolder /backup \e[0m $(ls -lt /backup)" 
-	echo -e "Press enter to continue"
-	read 
-}
-backupTar() {
-	clear
-	read -p "Enter the ABSOLUTE PATH (ex : /var/log/): " target  
-	d=`date +%d-%m-%Y-%H-%M-%S`
-	folder="backup-$d"
-	tar czvf /backup/$folder.tar.gz $target
-	# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-	echo -e "\e[92m-> Saved folder ($target) into a .tar.gz file \nLocation : /backup/$folder.tar.tgz \e[0m";
-	echo -e "For decompress the tar.gz archive go into /backup and : tar -xvf $folder.tar.tgz"
-	echo
-	echo -e "\e[92m ls of backupfolder /backup \e[0m $(ls -lt /backup)" 
-    echo -e "Press enter to continue"
-	read 
-}
-backupZip() {
-	clear
-	read -p "Enter the ABSOLUTE PATH (ex : /var/log/): " target  
-	d=`date +%d-%m-%Y-%H-%M-%S`
-	folder="backup-$d"
-	# folderFinal="$(echo $folder | cut -c2-)" # cette action permet d'obtenir le nom sans / (pas obligatoire, mais je trouve que c'est plus propre)
-	zip -r /backup/$folder.zip $target
-	# on ne peut pas utiliser un underscore, car il efface le contenue de la variable $target ... 
-	echo -e "\e[92m-> Saved folder $target into a .zip file \nLocation : /backup/$folder.zip \e[0m";
-	echo -e "For decompress the .zip archive go into /backup and : unzip $folder.zip "
-	echo
-	echo -e "\e[92m ls of backupfolder /backup \e[0m $(ls -lt /backup)" 
-	echo -e "Press enter to continue"
-	read 
-}
+source /etc/skdu/Globalfunction.cfg
 clear
 x=0
 echo -e "**************************************************"
@@ -96,3 +55,4 @@ case $backupRep in
 esac
 continue 
 done
+clear
