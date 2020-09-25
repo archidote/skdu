@@ -8,10 +8,12 @@ run the following command <b> as root </b>
 
 ``` 
  sudo curl -sL https://raw.githubusercontent.com/brlndtech/skdu/master/install.sh | bash
+ # open a new terminal tab as root and run  
+ skdu
 ``` 
 
 
-## :pushpin: Hand installation (1/2)
+## :pushpin: OLD Hand installation (1/2)
 
 on your linux server (DEBIAN Family), run the following commands <b>as root </b>: 
 
