@@ -13,7 +13,8 @@ echo -e "  1)  Encrypt a file with AES-256-CBC -pbkdf2 -salt   : "
 echo -e "  2)  Decrypt a file (AES-256-CBC -pbkdf2 -salt): "
 echo -e "  3)  Encrypt a file with your public key : "
 echo -e "  4)  Decrypt a file with your private key : "
-echo -e "  5)  Write something, and encrypt it ! "
+echo -e "  5)  Write something, and encrypt it with a public key ! "
+echo -e "  6)  Write something, and encrypt it with AES-256-CBC -pbkdf2 -salt! "
 echo -e "  10) Exit the sub menu  "
 read -p "Select an option : " answer
 case $answer in
@@ -66,9 +67,18 @@ case $answer in
     pubKey=${pubKey:-/root/myKey/pub.pem} 
     # read -p "Enter the e-mail of your recipient" email
     # read -p "Enter the object of the message : " object
-    read -p "Enter the name of the file : " fileC
+    read -p "Enter the name of the file (if it not exist yet) : " fileC
     nano /tmp/$fileC.clear 
     openssl rsautl -encrypt -inkey $pubKey -pubin -in /tmp/$fileC.clear -out /tmp/file.encrypted
+    isFileEncryptedExist
+    # echo "cf the attachment ->" | mail -s "$object" $email -A /tmp/message.encrypted
+    echo -e "Press enter to continue"
+	read
+    ;;
+    6)
+    read -p "Enter the name of the file (if it not exist yet): " fileC
+    nano /tmp/$fileC.clear
+    openssl aes-256-cbc -pbkdf2 -a -salt -in /tmp/$fileC.clear -out /tmp/file.encrypted
     isFileEncryptedExist
     # echo "cf the attachment ->" | mail -s "$object" $email -A /tmp/message.encrypted
     echo -e "Press enter to continue"

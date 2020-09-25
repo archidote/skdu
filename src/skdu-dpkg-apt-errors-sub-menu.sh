@@ -9,17 +9,39 @@ do
 echo -e ""
 echo -e "  1) E: Unable to lock the administration directory (/var/lib/dpkg/)"
 echo -e "  2) E: sub-process /usr/bin/dpkg returned an error code  "
-echo -e "  3) Leave this sub-menu"
+# echo -e "  3) E: Unable to lock the administration directory"
+echo -e "  4) exit  "
+
 echo -e ""
 read -p "Select an option : " answer
 case $answer in
         1)
-		/etc/skdu/src/skdu-apt-dpkgpb1.sh
+		clear
+		rm -f /var/lib/dpkg/lock
+		echo -e "Action done ! "
+		echo -e "\e[93mCheck if the problem has been resolved, with apt update && apt upgrade\e[0m"
+		echo -e "Reboot to be sure :)" 
+		echo
+		echo -e "Press enter to continue"
+		read
+		clear
         ;;
         2)
-		/etc/skdu/src/skdu-apt-dpkgpb2.sh
+		#!/bin/bash
+		clear
+		read -p "Enter the name of the blocking packet (Ex : apache2)" packet
+		rm /var/lib/dpkg/info/$packet* -f
+		echo -e "Action done ! "
+		echo -e "\e[93mCheck if the problem has been resolved, with apt update && apt upgrade \e[0m"
+		echo -e "Reboot to be sure :)" 
+		echo -e "Press enter to continue"
+		read
+		clear
         ;;
 		3)
+		echo 
+		;;
+		4)
 		clear
 		break
 		;;
