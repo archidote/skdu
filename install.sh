@@ -7,4 +7,4 @@ cat >> $HOME/.bashrc << EOF
 alias skdu='/etc/skdu/skdu'
 EOF
 source $HOME/.bashrc
-echo -e "\e[92mDone, please open a new terminal tab, and run \"skdu\" cmd\e[39m"
+echo -e "\e[92mDone, please open a new terminal tab, and run \"skdu\" cmd as root\e[39m"
