@@ -2,7 +2,7 @@
 SKDU project has been create to 
 facilitate the debian / ubuntu ... administration / monitoring. Enjoy :)
 
-## :pushpin: Auto installation (1/2)
+## :pushpin: Auto installation 
 
 run the following command <b> as root </b> 
 
@@ -11,7 +11,7 @@ run the following command <b> as root </b>
 ``` 
 
 
-## :pushpin: Hand installation (1/2)
+## :pushpin: Hand installation 
 
 on your linux server (DEBIAN Family), run the following commands <b>as root </b>: 
 
@@ -24,7 +24,7 @@ cd skdu
 ``` 
 Demo installation : https://brlnd-tech.eu/skdu/
 
-## :pushpin: install linux dependencies (2/2)
+## :pushpin: install linux dependencies 
 
 If you run skdu for the first time, run FIRSTLY the option "0" for install all the dependencies that skdu required. Then, you can enjoy the program as you want 
 

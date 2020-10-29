@@ -1,5 +1,5 @@
 #!/bin/bash
-source /etc/skdu/Globalfunction.cfg
+source /etc/skdu/functions.cfg
 clear
 x=0
 echo -e "*********************************************"

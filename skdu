@@ -1,5 +1,5 @@
 #!/bin/bash
-source /etc/skdu/Globalfunction.cfg
+source /etc/skdu/functions.cfg
 clear
 echo "-----------------------------------------------------------------"
 echo "//     SKDU - Brlndtech 2019-`date +%Y` © AIO management scripts     //";
