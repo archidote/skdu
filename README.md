@@ -11,7 +11,7 @@ run the following command <b> as root </b>
 ``` 
 
 
-## :pushpin: Hand installation 
+## :pushpin: Hand installation (Old and note convenient
 
 on your linux server (DEBIAN Family), run the following commands <b>as root </b>: 
 
