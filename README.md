@@ -2,12 +2,14 @@
 SKDU project has been create to 
 facilitate the debian / ubuntu ... administration / monitoring. Enjoy :)
 
+**WARNING** : You need to be root for executing skdu
+
 ## :pushpin: Auto installation 
 
-run the following command <b> as root </b> 
+run the following commands <b> as root </b> 
 
 ``` 
- sudo curl -sL https://raw.githubusercontent.com/brlndtech/skdu/master/install.sh | bash
+curl -sL https://raw.githubusercontent.com/brlndtech/skdu/master/install.sh | bash
 ``` 
 
 
@@ -17,12 +19,17 @@ on your linux server (DEBIAN Family), run the following commands <b>as root </b>
 
 ```
 apt install git
+cd /etc/
 git clone https://github.com/brlndtech/skdu
 chmod 700 -R skdu
-cd skdu 
-./skdu
+nano /root/.bashrc
+---
+# add the following alias at the end of file
+alias skdu='/etc/skdu/skdu'
+---
+source /root/.bashrc
+# open a new terminal, and run "skdu" command as root. 
 ``` 
-Demo installation : https://brlnd-tech.eu/skdu/
 
 ## :pushpin: install linux dependencies 
 
@@ -43,13 +50,11 @@ This is the main menu of skdu, for more info about the sub-tools, start to use i
 
 ## :question: :speech_balloon:Issues 
 
-1 -  Skdu is available only for debian family. 
+1 -  Skdu is available only for debian family (Debian/Ubuntu/kalilinux/Elementary OS etc.)
 **Readhat family is not fully compatible ! ** 
 
 
 ### Errors Code 
 
 If you detect errors or bugs please open an github issue,
-
-#### <center>Brlndtech</center>
 
