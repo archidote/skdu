@@ -5,17 +5,13 @@ echo -e "\e[93m WARNING \e[0m, you will change the ip address of your server. Ma
 echo -e ""
 if [ -d "/etc/network/backup" ];then
     echo ""
-	# echo "Le dossier /etc/netplan/backup est déjà présent sur le système";
 else
 	mkdir /etc/network/backup
 	echo "/etc/network/backup has been created ! "
 	echo -e "Nb : a backup of your current configuration file (/etc/network/interfaces) has been released check /etc/network/backup/* for more"
 fi
-cp /etc/network/interfaces /etc/network/backup/interfaces_backup_`date +%Y%m%d%H%M`
-# Changes dhcp from 'yes' to 'no'
-# sed -i "s/dhcp4: yes/dhcp4: no/g" $locateNetplan
-# Retrieves the NIC information
-nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2- | head -1`
+cp /etc/network/interfaces /etc/network/backup/interfaces_backup_`date +%Y-%m-%d-%H-%M`
+nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2- | head -1` # Retrieves the NIC information
 # Ask for input on network configuration
 # /usr/sbin/ifdown $nic
 read -p "Configure the network with DHCP ? (O/n) : " dhcp
@@ -35,7 +31,6 @@ iface lo inet loopback
 allow-hotplug $nic
 iface $nic inet dhcp
 EOF
-
 else 
 read -p "Enter the static IP (ex : 192.168.0.10) : " staticip
 read -p "Entrer the netmask (ex : 255.255.255.0) : " netmask

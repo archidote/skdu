@@ -2,17 +2,13 @@
 clear
 # Creates a backup
 echo -e "\e[93m WARNING \e[0m, you will change the ip address of your server. Make sure that you have a physical access to him. TAP CTRL C for cancel the action"
-if [ -d "/etc/netplan/backup" ];then
-echo ""
-# echo "Le dossier /etc/netplan/backup est déjà présent sur le système";
+if [ -d "/etc/netplan.backup.d" ];then
+    echo ""
 else
-mkdir /etc/netplan/backup
-echo "/etc/netplan/backup has been created ! "
+    mkdir /etc/netplan.backup.d/
+    echo "/etc/netplan.backup.d has been created ! "
 fi
-locateNetplan=`find /etc/netplan/ -name "*.yaml" | cut -c14-`
-cp /etc/netplan/$locateNetplan /etc/netplan/backup/netplan_`date +%Y%m%d%H%M`
-# Changes dhcp from 'yes' to 'no'
-# sed -i "s/dhcp4: yes/dhcp4: no/g" $locateNetplan
+cp -r /etc/netplan/ /etc/netplan.backup.d/netplan.backup-`date +%Y-%m-%d-%H-%M`
 # Retrieves the NIC information
 nic=`ip link | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | cut -c2- | head -1`
 # echo $nic:
@@ -30,7 +26,6 @@ network:
     $nic:
       dhcp4: yes
 EOF
-
 else
 read -p "Enter the static IP in CIDR notation (ex : 192.168.0.10/24) : " staticip 
 read -p "Enter the IP of your gateway : " gatewayip
